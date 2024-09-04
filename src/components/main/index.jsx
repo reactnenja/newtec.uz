@@ -1,7 +1,7 @@
 import React from "react";
 import About from "./about";
 import Blogs from "./blog";
-import Services from "./services";
+import Prices from "./prices";
 import Teams from "./teams";
 
 const Main = () => {
@@ -9,8 +9,8 @@ const Main = () => {
         <main>
             <About />
             <Blogs />
+            <Prices />
             <Teams />
-            <Services />
         </main>
     );
 };

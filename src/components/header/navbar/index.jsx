@@ -1,5 +1,6 @@
-import { Menu } from "lucide-react";
+import { Globe, Mail, Menu, PaintRoller, Shield } from "lucide-react";
 import React, { useState } from "react";
+import { CgClose } from "react-icons/cg";
 import SubNav from "./subnav";
 
 const Navbar = () => {
@@ -30,11 +31,22 @@ const Navbar = () => {
             name: "Teams",
             href: "/team",
         },
+    ];
+    const links = [
+        { name: "Web Hosting", href: "/web-hosting", icon: <Globe /> },
+        { name: "Email Hosting", href: "/email-hosting", icon: <Mail /> },
         {
-            name: "Services",
-            href: "/services",
+            name: "SSL Certificates",
+            href: "/ssl-certificates",
+            icon: <Shield />,
+        },
+        {
+            name: "Website Builder",
+            href: "/website-builder",
+            icon: <PaintRoller />,
         },
     ];
+
     return (
         <nav className="fixed top-0 w-full z-50 bg-white shadow-md text-black h-32">
             <SubNav />
@@ -76,16 +88,45 @@ const Navbar = () => {
             {isOpen && (
                 <div
                     className={`${
-                        isOpen ? "-translate-x-0" : "-translate-x-full"
-                    } fixed top-32 left-0 w-[800px] h-screen p-4 bg-black/20 backdrop-blur-lg overflow-hidden`}
+                        isOpen
+                            ? "-translate-x-0"
+                            : "-translate-x-full transition-all duration-700 "
+                    } fixed top-0 left-0 w-full overflow-y-auto h-screen bg-black/20 backdrop-blur-lg overflow-hidden`}
                 >
+                    <div className="bg-white/20 py-4 px-3 mb-3 flex justify-between items-center shadow">
+                        <a href="/">
+                            <h1 className="text-2xl font-bold">MENU</h1>
+                        </a>
+                        <button
+                            onClick={handleOpen}
+                            className="flex lg:hidden xl:hidden hover:text-red-700 2xl:hidden justify-center items-center"
+                        >
+                            <CgClose size={32} />
+                        </button>
+                    </div>
                     <div className="container mx-auto px-4">
-                        <ul className="flex flex-col gap-4">
+                        <div className="bg-black rounded-xl mb-4 p-4 w-full h-[300px] flex justify-center items-center">
+                            <ul className="flex flex-col w-full justify-center items-center gap-2">
+                                {links?.map((item, index) => (
+                                    <li key={index} className="w-full">
+                                        <a
+                                            href={item.href}
+                                            className="text-white flex items-center gap-4 text-center hover:bg-blue-500 duration-500 rounded-md w-full justify-start px-4 py-3"
+                                        >
+                                            {item.icon}
+                                            <span>{item.name}</span>
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <hr className="border-2" />
+                        <ul className="flex flex-col gap-2 py-4">
                             {isLink?.map((item, index) => (
                                 <li key={index} className="w-full">
                                     <a
                                         href={item.href}
-                                        className="bg-white text-black w-full inline-block rounded-md p-2 hover:scale-105 hover:bg-slate-200 hover:text-black transition-all"
+                                        className="text-2xl duration-700 text-black w-full inline-block rounded-md p-2 hover:translate-x-4 transition-all"
                                     >
                                         {item.name}
                                     </a>

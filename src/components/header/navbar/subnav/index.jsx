@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+import { Globe, Mail, Moon, PaintRoller, Shield, Sun } from "lucide-react";
 import React, { useState } from "react";
 
 const SubNav = () => {
@@ -25,10 +25,18 @@ const SubNav = () => {
     ];
 
     const links = [
-        { name: "Web Hosting", href: "/web-hosting" },
-        { name: "Email Hosting", href: "/email-hosting" },
-        { name: "SSL Certificates", href: "/ssl-certificates" },
-        { name: "Website Builder", href: "/website-builder" },
+        { name: "Web Hosting", href: "/web-hosting", icon: <Globe /> },
+        { name: "Email Hosting", href: "/email-hosting", icon: <Mail /> },
+        {
+            name: "SSL Certificates",
+            href: "/ssl-certificates",
+            icon: <Shield />,
+        },
+        {
+            name: "Website Builder",
+            href: "/website-builder",
+            icon: <PaintRoller />,
+        },
     ];
 
     const handleClick = () => {
@@ -50,10 +58,11 @@ const SubNav = () => {
                             {links.map((item, index) => (
                                 <li key={index}>
                                     <a
-                                        className="hover:scale-95 duration-700 text-white hover:bg-slate-200 hover:text-black rounded-md transition-all p-2"
+                                        className="hover:scale-95 duration-700 text-white hover:bg-slate-200 hover:text-black rounded-md transition-all p-2 flex items-center gap-2"
                                         href={item.href}
                                     >
-                                        {item.name}
+                                        {item.icon}
+                                        <span>{item.name}</span>
                                     </a>
                                 </li>
                             ))}
