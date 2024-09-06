@@ -12,24 +12,24 @@ const Navbar = () => {
     const isLink = [
         {
             name: "Home",
-            href: "/",
+            href: "#hero",
         },
         {
             name: "About",
-            href: "/about",
+            href: "#about",
         },
         {
             name: "Blog",
-            href: "/blog",
+            href: "#blog",
         },
 
         {
             name: "Prices",
-            href: "/pricing",
+            href: "#pricing",
         },
         {
             name: "Teams",
-            href: "/team",
+            href: "#team",
         },
     ];
     const links = [
@@ -69,10 +69,10 @@ const Navbar = () => {
                             ))}
                         </ul>
                         <div className="flex gap-3">
-                            <button className="bg-transparent duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline ">
+                            <button className="bg-transparent duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:hover:text-white xl:hover:bg-zinc-700 2xl:hover:bg-zinc-700 2xl:hover:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline ">
                                 Login
                             </button>
-                            <button className="bg-transparene duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline ">
+                            <button className="bg-transparene duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:hover:text-white xl:hover:bg-zinc-700 2xl:hover:bg-zinc-700 2xl:hover:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline ">
                                 Register
                             </button>
                             <button
@@ -105,13 +105,16 @@ const Navbar = () => {
                         </button>
                     </div>
                     <div className="container mx-auto px-4">
-                        <div className="bg-black rounded-xl mb-4 p-4 w-full h-[300px] flex justify-center items-center">
-                            <ul className="flex flex-col w-full justify-center items-center gap-2">
+                        <div className="bg-black rounded-xl mb-4 p-2 w-full b h-[300px] flex justify-center items-center">
+                            <ul className="grid grid-cols-1 w-fullsm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2 w-full p-4">
                                 {links?.map((item, index) => (
-                                    <li key={index} className="w-full">
+                                    <li
+                                        key={index}
+                                        className="w-full flex justify-center"
+                                    >
                                         <a
                                             href={item.href}
-                                            className="text-white flex items-center gap-4 text-center hover:bg-blue-500 duration-500 rounded-md w-full justify-start px-4 py-3"
+                                            className="text-white  flex items-center gap-4 text-center hover:bg-blue-500 duration-500 rounded-md w-full justify-start px-4 py-3"
                                         >
                                             {item.icon}
                                             <span>{item.name}</span>

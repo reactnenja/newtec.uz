@@ -57,8 +57,8 @@ const Hero = () => {
         },
     ];
     return (
-        <div className="py-[60px]">
-            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 py-20 md:px-20">
+        <div className="pt-[140px]">
+            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <div className="flex flex-col lg:flex-row justify-between items-center mb-10">
                     <div className="lg:w-1/2 mb-6 lg:mb-0">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 font-bold leading-tight">

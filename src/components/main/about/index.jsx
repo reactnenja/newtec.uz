@@ -23,7 +23,7 @@ const About = () => {
     ];
 
     return (
-        <div className="py-20 w-full">
+        <div className="py-[130px] w-full" id="about">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <h2 className="text-4xl font-bold text-left">About Us</h2>
                 <div className="flex flex-col lg:flex-row justify-between gap-10 items-start py-10">
@@ -66,7 +66,7 @@ const About = () => {
                                     <h1 className="text-xl md:text-2xl font-bold">
                                         {item.name}
                                     </h1>
-                                    <h3 className="text-lg md:text-xl font-bold text-zinc-800">
+                                    <h3 className="text-lg text-blue-500 md:text-xl font-bold ">
                                         <CountUp
                                             start={1}
                                             end={item.percent}

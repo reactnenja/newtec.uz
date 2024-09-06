@@ -53,7 +53,7 @@ const Blogs = () => {
     };
 
     return (
-        <div className="py-[60px] w-full h-full">
+        <div className="py-[130px] w-full h-full" id="blog">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <h1 className="text-4xl font-bold text-zinc-800 mb-10 text-center">
                     Our Blog
@@ -87,7 +87,7 @@ const Blogs = () => {
                     <div className="flex justify-center mt-10">
                         <button
                             onClick={showMore}
-                            className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition-colors"
+                            className="bg-black text-white px-6 py-3 rounded-md hover:bg-zinc-800 transition-colors"
                         >
                             Show More
                         </button>
