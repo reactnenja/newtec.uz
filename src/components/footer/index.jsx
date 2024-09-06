@@ -24,37 +24,37 @@ const Footer = () => {
                         <div className="flex space-x-4">
                             <a
                                 href="#"
-                                className="hover:text-red-500 transition-colors"
+                                className="hover:text-slate-300 transition-colors"
                             >
                                 <FaFacebookF />
                             </a>
                             <a
                                 href="#"
-                                className="hover:text-red-500 transition-colors"
+                                className="hover:text-slate-300 transition-colors"
                             >
                                 <FaInstagram />
                             </a>
                             <a
                                 href="#"
-                                className="hover:text-red-500 transition-colors"
+                                className="hover:text-slate-300 transition-colors"
                             >
                                 <FaTwitter />
                             </a>
                             <a
                                 href="#"
-                                className="hover:text-red-500 transition-colors"
+                                className="hover:text-slate-300 transition-colors"
                             >
                                 <FaLinkedinIn />
                             </a>
                             <a
                                 href="#"
-                                className="hover:text-red-500 transition-colors"
+                                className="hover:text-slate-300 transition-colors"
                             >
                                 <FaYoutube />
                             </a>
                             <a
                                 href="#"
-                                className="hover:text-red-500 transition-colors"
+                                className="hover:text-slate-300 transition-colors"
                             >
                                 <FaGithub />
                             </a>
@@ -68,7 +68,7 @@ const Footer = () => {
                             <li>
                                 <a
                                     href="/"
-                                    className="hover:text-red-500 transition-colors"
+                                    className="hover:text-slate-300 transition-colors"
                                 >
                                     Home
                                 </a>
@@ -76,7 +76,7 @@ const Footer = () => {
                             <li>
                                 <a
                                     href="/about"
-                                    className="hover:text-red-500 transition-colors"
+                                    className="hover:text-slate-300 transition-colors"
                                 >
                                     About Us
                                 </a>
@@ -84,7 +84,7 @@ const Footer = () => {
                             <li>
                                 <a
                                     href="/services"
-                                    className="hover:text-red-500 transition-colors"
+                                    className="hover:text-zinc-300 transition-colors"
                                 >
                                     Services
                                 </a>
@@ -92,7 +92,7 @@ const Footer = () => {
                             <li>
                                 <a
                                     href="/products"
-                                    className="hover:text-red-500 transition-colors"
+                                    className="hover:text-zinc-300 transition-colors"
                                 >
                                     Products
                                 </a>
@@ -100,7 +100,7 @@ const Footer = () => {
                             <li>
                                 <a
                                     href="/contact"
-                                    className="hover:text-red-500 transition-colors"
+                                    className="hover:text-slate-300 transition-colors"
                                 >
                                     Contact
                                 </a>
@@ -114,40 +114,40 @@ const Footer = () => {
                         <ul className="space-y-2">
                             <li>
                                 <a
-                                    href="/blog"
-                                    className="hover:text-red-500 transition-colors"
+                                    href="#blog"
+                                    className="hover:text-slate-200 transition-colors"
                                 >
                                     Blog
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="/careers"
-                                    className="hover:text-red-500 transition-colors"
+                                    href="#careers"
+                                    className="hover:text-slate-200 transition-colors"
                                 >
                                     Careers
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="/faq"
-                                    className="hover:text-red-500 transition-colors"
+                                    href="#faq"
+                                    className="hover:text-slate-200 transition-colors"
                                 >
                                     FAQ
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="/privacy"
-                                    className="hover:text-red-500 transition-colors"
+                                    href="#privacy"
+                                    className="hover:text-slate-200 transition-colors"
                                 >
                                     Privacy Policy
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="/terms"
-                                    className="hover:text-red-500 transition-colors"
+                                    href="#teams"
+                                    className="hover:text-slate-200 transition-colors"
                                 >
                                     Terms of Service
                                 </a>
@@ -165,11 +165,11 @@ const Footer = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="p-2 w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                className="p-2 w-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-zinc-800"
                             />
                             <button
                                 type="submit"
-                                className="bg-red-500 text-white p-2 hover:bg-red-600 transition-colors"
+                                className="bg-zinc-700 text-white p-2 hover:bg-zinc-900 transition-colors"
                             >
                                 Subscribe
                             </button>

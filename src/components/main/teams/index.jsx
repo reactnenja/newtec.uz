@@ -126,7 +126,7 @@ const Teams = () => {
                         </h1>
                     </div>
                     <div className="w-full sm:w-full md:w-full lg:w-[800px]">
-                        <div className=" w-full border-2 rounded-lg flex items-center flex-col sm:flex-row  md:flex-row lg:flex-row justify-between">
+                        <div className=" w-full rounded-lg flex items-center flex-col sm:flex-row  md:flex-row lg:flex-row justify-between">
                             <button
                                 onClick={() => handleClick("Frontend")}
                                 className={`px-3 py-2 ${
