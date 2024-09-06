@@ -113,7 +113,7 @@ const Navbar = () => {
                 initial={{ x: "-100%" }}
                 animate={{ x: isOpen ? 0 : "-100%" }}
                 transition={{ duration: 0.7, ease: "easeInOut" }}
-                className="fixed top-[60px] rounded-t-2xl left-0 w-full overflow-y-auto h-[calc(100vh-60px)] bg-black/20 backdrop-blur-lg"
+                className="fixed top-[60px] left-0 w-full overflow-y-auto h-[800px] bg-black/20 backdrop-blur-lg"
             >
                 <div className="bg-white/20 py-4 px-2 mb-3 flex justify-between items-center shadow">
                     <a href="/">

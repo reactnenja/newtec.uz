@@ -1,4 +1,4 @@
-import { CheckCircle, Search } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import React, { useState } from "react";
 
 const Prices = () => {
@@ -124,51 +124,7 @@ const Prices = () => {
         <div className="bg-gray-50 pt-[138px] pb-[88px]" id="prices">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <h2 className="text-5xl font-bold text-left mb-10">Pricing</h2>
-                {/* Domain Search */}
-                <div className="text-center mb-8">
-                    <button
-                        aria-label="Toggle Domain Search"
-                        className="bg-zinc-800 duration-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition"
-                        onClick={() => setSearchVisible(!isSearchVisible)}
-                    >
-                        Search Domain <Search className="inline w-5 h-5 ml-2" />
-                    </button>
-                    {isSearchVisible && (
-                        <div className="mt-4 flex justify-center">
-                            <input
-                                type="text"
-                                placeholder="Enter domain name"
-                                className="px-4 py-2 w-full max-w-sm border rounded-l-md rounded-r-none outline-none"
-                                aria-label="Domain Name Input "
-                            />
-                            <button className="bg-zinc-800 text-white px-4 rounded-r-md hover:bg-zinc-900">
-                                Search{" "}
-                                <Search className="inline w-5 h-5 ml-2" />
-                            </button>
-                        </div>
-                    )}
-                </div>
-
                 {/* Section Toggle */}
-                <div className="text-center mb-10">
-                    <div className="inline-flex flex-wrap justify-center border rounded-lg overflow-hidden">
-                        {Object.keys(pricingPlans).map((section) => (
-                            <button
-                                key={section}
-                                onClick={() => setSelectedSection(section)}
-                                className={`px-4 py-2 ${
-                                    selectedSection === section
-                                        ? "bg-zinc-800 duration-500 text-white"
-                                        : "bg-gray-200"
-                                } transition`}
-                                aria-label={`Select ${section} Section`}
-                            >
-                                {section}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
                 {/* Billing Cycle Toggle */}
                 <div className="text-center mb-10">
                     <div className="inline-flex border rounded-lg overflow-hidden">
@@ -184,6 +140,24 @@ const Prices = () => {
                                 aria-label={`Select ${cycle} Billing Cycle`}
                             >
                                 {cycle.charAt(0).toUpperCase() + cycle.slice(1)}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+                <div className="text-center mb-10">
+                    <div className="inline-flex flex-wrap justify-center border rounded-lg overflow-hidden">
+                        {Object.keys(pricingPlans).map((section) => (
+                            <button
+                                key={section}
+                                onClick={() => setSelectedSection(section)}
+                                className={`px-4 py-2 ${
+                                    selectedSection === section
+                                        ? "bg-zinc-800 duration-500 text-white"
+                                        : "bg-gray-200"
+                                } transition`}
+                                aria-label={`Select ${section} Section`}
+                            >
+                                {section}
                             </button>
                         ))}
                     </div>
