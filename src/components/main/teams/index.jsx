@@ -126,16 +126,16 @@ const Teams = () => {
                         </h1>
                     </div>
                     <div>
-                        <div className="flex items-center sm:justify-start xs:flex-col md:justify-start justify-center">
+                        <div className="flex items-center sm:justify-start flex-col sm:flex-row md:justify-start justify-center">
                             <button
                                 onClick={() => handleClick("Frontend")}
                                 className={`px-3 py-2 ${
                                     active === "Frontend"
                                         ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white  hover:bg-zinc-800 rounded-l-md`}
+                                } text-white  hover:bg-zinc-800 rounded-md m-1 w-full `}
                             >
-                                Front
+                                Frontend
                             </button>
                             <button
                                 onClick={() => handleClick("Backend")}
@@ -143,9 +143,9 @@ const Teams = () => {
                                     active === "Backend"
                                         ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white  hover:bg-zinc-800`}
+                                } text-white  hover:bg-zinc-800 rounded-md  m-1 w-full `}
                             >
-                                Back
+                                Backend
                             </button>
                             <button
                                 onClick={() => handleClick("DevOps")}
@@ -153,7 +153,7 @@ const Teams = () => {
                                     active === "DevOps"
                                         ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white  hover:bg-zinc-800`}
+                                } text-white  hover:bg-zinc-800 rounded-md m-1 w-full `}
                             >
                                 DevOps
                             </button>
@@ -163,7 +163,7 @@ const Teams = () => {
                                     active === "Mobile"
                                         ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white hover:bg-zinc-800`}
+                                } text-white hover:bg-zinc-800 rounded-md m-1 w-full `}
                             >
                                 Mobile
                             </button>
@@ -173,7 +173,7 @@ const Teams = () => {
                                     active === "Desktop"
                                         ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white  hover:bg-zinc-800`}
+                                } text-white  hover:bg-zinc-800 rounded-md m-1 w-full `}
                             >
                                 Desktop
                             </button>
@@ -183,9 +183,9 @@ const Teams = () => {
                                     active === "All"
                                         ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white rounded-r-md hover:bg-zinc-800`}
+                                } text-white rounded-md hover:bg-zinc-800 m-1 w-full `}
                             >
-                                All
+                                Teams
                             </button>
                         </div>
                     </div>

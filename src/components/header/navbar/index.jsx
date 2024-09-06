@@ -67,11 +67,14 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-white shadow-md text-black h-32">
-            <NavbarScroll />
-            <SubNav />
-            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-8 md:px-20">
-                <div className="flex justify-between items-center gap-2 mt-4">
+        <nav className="fixed top-0 w-full z-50 h-[132px] bg-white shadow-md text-black ">
+            <div className="h-[calc(132-80)px]">
+                {" "}
+                <NavbarScroll />
+                <SubNav />
+            </div>
+            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
+                <div className="flex justify-between items-center gap-2 h-[60px]">
                     <a href="/">
                         <h1 className="text-2xl font-bold">NEWTEC</h1>
                     </a>
