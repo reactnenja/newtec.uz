@@ -11,101 +11,101 @@ const Teams = () => {
         {
             name: "John Doe",
             role: "Frontend Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Jane Smith",
             role: "Frontend Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Alice Johnson",
             role: "Backend Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Bob Brown",
             role: "Backend Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Charlie White",
             role: "Mobile Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Eve Davis",
             role: "DevOps Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Frank Miller",
             role: "Frontend Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Grace Lee",
             role: "Backend Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Henry Wilson",
             role: "Mobile Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Ivy Chen",
             role: "DevOps Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Jack Taylor",
             role: "Desktop Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
 
         {
             name: "Liam Harris",
             role: "Backend Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Mia Robinson",
             role: "Mobile Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Noah Clark",
             role: "DevOps Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Olivia Lewis",
             role: "Desktop Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
 
         {
             name: "Rachel Scott",
             role: "Mobile Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
 
         {
             name: "Tina Turner",
             role: "Desktop Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
         {
             name: "Ulysses Grant",
             role: "Frontend Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
 
         {
             name: "Xander Hall",
             role: "DevOps Developer",
-            image: "https://via.placeholder.com/150",
+            image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
     ];
 
@@ -117,80 +117,80 @@ const Teams = () => {
               );
 
     return (
-        <div className="py-[60px] bg-white w-full h-auto" id="teams">
+        <div className="pt-[140px] pb-[88px] bg-white w-full h-auto" id="teams">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <div className="flex flex-col md:flex-row justify-between items-center mb-20">
                     <div className="mb-4 md:mb-0">
                         <h1 className="text-3xl md:text-4xl font-bold">
-                            Our Team
+                            Teams
                         </h1>
                     </div>
                     <div>
-                        <div className="flex flex-wrap items-center sm:justify-start md:justify-start justify-center">
-                            <button
-                                onClick={() => handleClick("Backend")}
-                                className={`px-3 py-2 m-1 ${
-                                    active === "Backend"
-                                        ? "bg-blue-600"
-                                        : "bg-zinc-900"
-                                } text-white rounded-md hover:bg-blue-600`}
-                            >
-                                Backend
-                            </button>
+                        <div className="flex items-center sm:justify-start xs:flex-col md:justify-start justify-center">
                             <button
                                 onClick={() => handleClick("Frontend")}
-                                className={`px-3 py-2 m-1 ${
+                                className={`px-3 py-2 ${
                                     active === "Frontend"
-                                        ? "bg-blue-600"
+                                        ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white rounded-md hover:bg-blue-600`}
+                                } text-white  hover:bg-zinc-800 rounded-l-md`}
                             >
-                                Frontend
+                                Front
+                            </button>
+                            <button
+                                onClick={() => handleClick("Backend")}
+                                className={`px-3 py-2 ${
+                                    active === "Backend"
+                                        ? "bg-zinc-700"
+                                        : "bg-zinc-900"
+                                } text-white  hover:bg-zinc-800`}
+                            >
+                                Back
                             </button>
                             <button
                                 onClick={() => handleClick("DevOps")}
-                                className={`px-3 py-2 m-1 ${
+                                className={`px-3 py-2 ${
                                     active === "DevOps"
-                                        ? "bg-blue-600"
+                                        ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white rounded-md hover:bg-blue-600`}
+                                } text-white  hover:bg-zinc-800`}
                             >
                                 DevOps
                             </button>
                             <button
                                 onClick={() => handleClick("Mobile")}
-                                className={`px-3 py-2 m-1 ${
+                                className={`px-3 py-2 ${
                                     active === "Mobile"
-                                        ? "bg-blue-600"
+                                        ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white rounded-md hover:bg-blue-600`}
+                                } text-white hover:bg-zinc-800`}
                             >
-                                Mobile Dev
+                                Mobile
                             </button>
                             <button
                                 onClick={() => handleClick("Desktop")}
-                                className={`px-3 py-2 m-1 ${
+                                className={`px-3 py-2 ${
                                     active === "Desktop"
-                                        ? "bg-blue-600"
+                                        ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white rounded-md hover:bg-blue-600`}
+                                } text-white  hover:bg-zinc-800`}
                             >
                                 Desktop
                             </button>
                             <button
                                 onClick={() => handleClick("All")}
-                                className={`px-3 py-2 m-1 ${
+                                className={`px-3 py-2 ${
                                     active === "All"
-                                        ? "bg-blue-600"
+                                        ? "bg-zinc-700"
                                         : "bg-zinc-900"
-                                } text-white rounded-md hover:bg-blue-600`}
+                                } text-white rounded-r-md hover:bg-zinc-800`}
                             >
-                                And More
+                                All
                             </button>
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
                     {filteredTeams.map((team, index) => (
                         <div
                             key={index}

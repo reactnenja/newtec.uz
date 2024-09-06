@@ -17,12 +17,12 @@ const Contact = () => {
     };
 
     return (
-        <section className="py-16 bg-gray-100" id="contact">
+        <section className="pt-[140px] pb-[88px] bg-gray-100" id="contact">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
-                <h1 className="text-4xl font-bold text-gray-800 mb-12 text-center">
+                <h1 className="text-4xl font-bold text-gray-800 mb-12 text-left">
                     {/* Biz bilan bog'laning */} Contact us
                 </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 gap-12">
                     {/* Contact ma'lumotlari */}
                     <div className="space-y-8 bg-white p-8 rounded-lg shadow-lg">
                         <div className="flex items-start space-x-4">
@@ -179,13 +179,18 @@ const Contact = () => {
                     <h2 className="text-2xl font-bold text-gray-800 mb-6">
                         Bizning joylashuv
                     </h2>
-                    <div className="w-full h-[455px] rounded-lg overflow-hidden shadow-lg">
+                    <div className="w-full h-[465px] rounded-lg overflow-hidden shadow-lg p-2">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d67796.68558029651!2d69.14955940926306!3d41.32586168505353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b685b689e13%3A0xaf4cdf526e02f5e7!2sHilton%20Tashkent%20City!5e0!3m2!1sen!2s!4v1725598186516!5m2!1sen!2s"
                             width="100%"
                             height="450"
                             allowfullscreen=""
-                            style={{ border: 0 }}
+                            style={{
+                                border: 0,
+                                borderRadius: "20px",
+                                outline: "none",
+                                focus: "none",
+                            }}
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
                         ></iframe>

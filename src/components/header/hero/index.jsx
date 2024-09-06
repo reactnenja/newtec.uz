@@ -57,7 +57,7 @@ const Hero = () => {
         },
     ];
     return (
-        <div className="pt-[140px]">
+        <div className="pt-[140px]  " id="hero">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <div className="flex flex-col lg:flex-row justify-between items-center mb-10">
                     <div className="lg:w-1/2 mb-6 lg:mb-0">

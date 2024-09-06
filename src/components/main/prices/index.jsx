@@ -1,303 +1,226 @@
-import { CheckCircle, DollarSign, Server } from "lucide-react";
+import { CheckCircle, Search } from "lucide-react";
 import React, { useState } from "react";
-import { BsTools } from "react-icons/bs";
 
 const Prices = () => {
     const [billingCycle, setBillingCycle] = useState("monthly");
-    const [selectedCategory, setSelectedCategory] = useState("WPS Hosting");
+    const [selectedSection, setSelectedSection] = useState("Web Hosting");
+    const [isSearchVisible, setSearchVisible] = useState(false);
 
     const pricingPlans = {
-        "WPS Hosting": [
+        "Web Hosting": [
             {
-                name: "Basic Plan",
-                price: { monthly: 19, yearly: 199 },
+                name: "Starter Plan",
+                price: { monthly: 2.99, yearly: 35.88, bonus: 2.69 },
                 features: [
-                    "10GB of Storage",
-                    "24/7 Support",
+                    "1 Website",
+                    "30 GB SSD Storage",
+                    "100 GB Bandwidth",
+                    "1 Email Account",
                     "Free SSL Certificate",
-                    "1 Domain Included",
-                    "100 Email Accounts",
-                    "Daily Backups",
+                    "24/7 Support",
                 ],
-                buttonText: "Get Started",
+                buttonText: "Select",
             },
             {
-                name: "Pro Plan",
-                price: { monthly: 29, yearly: 299 },
+                name: "Premium Plan",
+                price: { monthly: 5.99, yearly: 71.88, bonus: 5.39 },
                 features: [
-                    "50GB of Storage",
-                    "Priority Support",
+                    "100 Websites",
+                    "100 GB SSD Storage",
+                    "Unlimited Bandwidth",
+                    "Free Email",
                     "Free SSL Certificate",
-                    "5 Domains Included",
-                    "500 Email Accounts",
-                    "Weekly Backups",
-                    "Advanced Security",
+                    "Free Domain",
+                    "24/7 Support",
                 ],
-                buttonText: "Get Started",
+                buttonText: "Select",
             },
             {
                 name: "Business Plan",
-                price: { monthly: 49, yearly: 499 },
+                price: { monthly: 9.99, yearly: 119.88, bonus: 8.99 },
                 features: [
-                    "Unlimited Storage",
-                    "24/7 VIP Support",
-                    "Free SSL Certificates",
-                    "Unlimited Domains",
-                    "Unlimited Email Accounts",
+                    "100 Websites",
+                    "200 GB SSD Storage",
+                    "Unlimited Bandwidth",
+                    "Free Email",
+                    "Free SSL Certificate",
+                    "Free Domain",
                     "Daily Backups",
-                    "Enterprise Security",
-                    "Dedicated Server",
+                    "24/7 Support",
                 ],
-                buttonText: "Get Started",
+                buttonText: "Select",
             },
         ],
-        "Domain Search": [
+        "Business Email": [
             {
-                name: "Starter Plan",
-                price: { monthly: 9, yearly: 99 },
+                name: "Enterprise Email",
+                price: { monthly: 1.49, yearly: 17.88, bonus: 1.34 },
                 features: [
-                    "Domain Availability Check",
-                    "Multiple TLDs Supported",
-                    "Free WHOIS Privacy",
-                    "Bulk Domain Purchase",
-                    "Custom Domain Suggestions",
+                    "10 GB Storage",
+                    "50 Email Aliases",
+                    "Custom Domain",
+                    "Webmail Access",
+                    "IMAP/POP3/SMTP",
+                    "24/7 Support",
                 ],
-                buttonText: "Search Now",
+                buttonText: "Select",
             },
             {
-                name: "Advanced Plan",
-                price: { monthly: 19, yearly: 199 },
+                name: "Enterprise Email Plus",
+                price: { monthly: 2.99, yearly: 35.88, bonus: 2.69 },
                 features: [
-                    "Instant Domain Registration",
-                    "Priority Domain Support",
-                    "Premium Domain Market Access",
-                    "Advanced WHOIS Protection",
-                    "Domain Transfer Assistance",
+                    "30 GB Storage",
+                    "Unlimited Email Aliases",
+                    "Custom Domain",
+                    "Webmail Access",
+                    "IMAP/POP3/SMTP",
+                    "Advanced Spam Filter",
+                    "24/7 Support",
                 ],
-                buttonText: "Search Now",
-            },
-            {
-                name: "Enterprise Plan",
-                price: { monthly: 29, yearly: 299 },
-                features: [
-                    "Unlimited Domain Searches",
-                    "Dedicated Domain Advisor",
-                    "Enterprise-Level Support",
-                    "Domain Auction Participation",
-                    "Exclusive Domain Deals",
-                ],
-                buttonText: "Search Now",
-            },
-        ],
-        "SSL Certificates": [
-            {
-                name: "Basic SSL",
-                price: { monthly: 5, yearly: 50 },
-                features: [
-                    "Single Domain SSL",
-                    "256-bit Encryption",
-                    "Free Reissues",
-                    "Trusted by All Browsers",
-                    "30-Day Money-Back Guarantee",
-                ],
-                buttonText: "Get SSL",
-            },
-            {
-                name: "Wildcard SSL",
-                price: { monthly: 15, yearly: 150 },
-                features: [
-                    "Unlimited Subdomains",
-                    "256-bit Encryption",
-                    "Free Reissues",
-                    "Trusted by All Browsers",
-                    "Free Site Seal",
-                ],
-                buttonText: "Get SSL",
-            },
-            {
-                name: "EV SSL",
-                price: { monthly: 29, yearly: 290 },
-                features: [
-                    "Green Address Bar",
-                    "256-bit Encryption",
-                    "High Assurance",
-                    "Trusted by All Browsers",
-                    "Up to $1.5M Warranty",
-                ],
-                buttonText: "Get SSL",
+                buttonText: "Select",
             },
         ],
         "Website Builder": [
             {
-                name: "Starter Builder",
-                price: { monthly: 12, yearly: 120 },
+                name: "Starter",
+                price: { monthly: 7.99, yearly: 95.88, bonus: 7.19 },
                 features: [
-                    "Drag-and-Drop Builder",
-                    "10 Free Templates",
-                    "Mobile-Responsive Design",
-                    "Built-In SEO Tools",
-                    "Free Domain for 1 Year",
+                    "Free Domain",
+                    "Free SSL Certificate",
+                    "30+ Templates",
+                    "Mobile-Optimized",
+                    "E-Commerce Features",
+                    "24/7 Customer Support",
                 ],
                 buttonText: "Start Building",
             },
             {
-                name: "Professional Builder",
-                price: { monthly: 22, yearly: 220 },
+                name: "Business",
+                price: { monthly: 11.99, yearly: 143.88, bonus: 10.79 },
                 features: [
-                    "Advanced Design Options",
-                    "E-Commerce Functionality",
-                    "Custom Code Integration",
-                    "Premium Templates",
+                    "Free Domain",
+                    "Free SSL Certificate",
+                    "100+ Templates",
+                    "Mobile-Optimized",
+                    "Advanced E-Commerce",
+                    "SEO Tools",
                     "Priority Support",
-                ],
-                buttonText: "Start Building",
-            },
-            {
-                name: "Enterprise Builder",
-                price: { monthly: 45, yearly: 450 },
-                features: [
-                    "Unlimited Pages",
-                    "Advanced Analytics",
-                    "Enterprise-Level E-Commerce",
-                    "Custom API Integration",
-                    "Dedicated Account Manager",
                 ],
                 buttonText: "Start Building",
             },
         ],
     };
 
-    const additionalFeatures = [
-        {
-            icon: <Server size={48} className="text-blue-500 mb-2" />,
-            title: "High-Performance Servers",
-            description:
-                "Optimized for speed and reliability, ensuring your site is always up and running.",
-        },
-        {
-            icon: <DollarSign size={48} className="text-blue-500 mb-2" />,
-            title: "Affordable Pricing",
-            description:
-                "Choose from a variety of plans that fit your needs and budget, with no hidden fees.",
-        },
-        {
-            icon: <CheckCircle size={48} className="text-blue-500 mb-2" />,
-            title: "Guaranteed Uptime",
-            description:
-                "We guarantee 99.9% uptime with our robust and secure infrastructure.",
-        },
-        {
-            icon: <BsTools size={48} className="text-blue-500 mb-2" />,
-            title: "Easy-to-Use Tools",
-            description:
-                "Our intuitive control panel and tools make managing your services a breeze.",
-        },
-    ];
+    const calculatePrice = (prices) => {
+        const price = prices[billingCycle];
+        if (typeof price !== "number") {
+            console.error("Invalid price");
+            return "N/A";
+        }
+        return price.toFixed(2);
+    };
 
     return (
-        <div className="bg-gray-50 py-12">
-            <div className="container mx-auto px-6">
-                {/* Button Group */}
-                <div className="mb-8 flex justify-center gap-4 xs:flex-row sm:flex-row md:flex-row lg:flex-row xl:flex-row flex-col ">
-                    {Object.keys(pricingPlans).map((category) => (
-                        <button
-                            key={category}
-                            onClick={() => setSelectedCategory(category)}
-                            className={`px-4 py-2 sm:px-4 sm:py-2 md:px-4 md:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2 ${
-                                selectedCategory === category
-                                    ? "bg-blue-500 text-white"
-                                    : "bg-gray-200 text-gray-700"
-                            } rounded transition `}
-                        >
-                            {category}
-                        </button>
-                    ))}
+        <div className="bg-gray-50 pt-[138px] pb-[88px]" id="prices">
+            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
+                <h2 className="text-5xl font-bold text-left mb-10">Pricing</h2>
+                {/* Domain Search */}
+                <div className="text-center mb-8">
+                    <button
+                        aria-label="Toggle Domain Search"
+                        className="bg-zinc-800 duration-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition"
+                        onClick={() => setSearchVisible(!isSearchVisible)}
+                    >
+                        Search Domain <Search className="inline w-5 h-5 ml-2" />
+                    </button>
+                    {isSearchVisible && (
+                        <div className="mt-4 flex justify-center">
+                            <input
+                                type="text"
+                                placeholder="Enter domain name"
+                                className="px-4 py-2 w-full max-w-sm border rounded-l-md rounded-r-none outline-none"
+                                aria-label="Domain Name Input "
+                            />
+                            <button className="bg-zinc-800 text-white px-4 rounded-r-md hover:bg-zinc-900">
+                                Search{" "}
+                                <Search className="inline w-5 h-5 ml-2" />
+                            </button>
+                        </div>
+                    )}
+                </div>
+
+                {/* Section Toggle */}
+                <div className="text-center mb-10">
+                    <div className="inline-flex flex-wrap justify-center border rounded-lg overflow-hidden">
+                        {Object.keys(pricingPlans).map((section) => (
+                            <button
+                                key={section}
+                                onClick={() => setSelectedSection(section)}
+                                className={`px-4 py-2 ${
+                                    selectedSection === section
+                                        ? "bg-zinc-800 duration-500 text-white"
+                                        : "bg-gray-200"
+                                } transition`}
+                                aria-label={`Select ${section} Section`}
+                            >
+                                {section}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Billing Cycle Toggle */}
                 <div className="text-center mb-10">
-                    <button
-                        onClick={() => setBillingCycle("monthly")}
-                        className={`px-4 py-2 ${
-                            billingCycle === "monthly"
-                                ? "bg-blue-500 text-white"
-                                : "bg-gray-200"
-                        } rounded-l transition`}
-                    >
-                        Monthly
-                    </button>
-                    <button
-                        onClick={() => setBillingCycle("yearly")}
-                        className={`px-4 py-2 ${
-                            billingCycle === "yearly"
-                                ? "bg-blue-500 text-white"
-                                : "bg-gray-200"
-                        } rounded-r transition`}
-                    >
-                        Yearly
-                    </button>
+                    <div className="inline-flex border rounded-lg overflow-hidden">
+                        {["monthly", "yearly", "bonus"].map((cycle) => (
+                            <button
+                                key={cycle}
+                                onClick={() => setBillingCycle(cycle)}
+                                className={`px-4 py-2 ${
+                                    billingCycle === cycle
+                                        ? "bg-zinc-800 duration-500 text-white"
+                                        : "bg-gray-200"
+                                } transition`}
+                                aria-label={`Select ${cycle} Billing Cycle`}
+                            >
+                                {cycle.charAt(0).toUpperCase() + cycle.slice(1)}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Pricing Plans */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {pricingPlans[selectedCategory].map((plan) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {pricingPlans[selectedSection]?.map((plan) => (
                         <div
                             key={plan.name}
-                            className="bg-white shadow-lg rounded-lg p-6 transition transform hover:scale-105 hover:shadow-2xl"
+                            className="bg-white shadow-lg rounded-lg duration-700 cursor-pointer p-6 transition transform hover:scale-105 md:hover:scale-90 sm:hover:scale-90  max-sm:hover:scale-90 hover:shadow-2xl"
                         >
-                            <h2 className="text-xl font-semibold mb-4">
+                            <h2 className="text-xl font-semibold mb-4 text-center">
                                 {plan.name}
                             </h2>
-                            <p className="text-2xl font-bold text-gray-800">
-                                $
-                                {billingCycle === "monthly"
-                                    ? plan.price.monthly
-                                    : plan.price.yearly}{" "}
-                                <span className="text-sm font-normal">
-                                    / {billingCycle}
+                            <p className="text-center text-gray-600 text-2xl font-bold mb-4">
+                                ${calculatePrice(plan.price)}
+                                <span className="text-sm text-gray-400">
+                                    /{billingCycle === "yearly" ? "year" : "mo"}
                                 </span>
                             </p>
-                            <ul className="mt-4 mb-6 space-y-2">
+                            <ul className="mb-6">
                                 {plan.features.map((feature, index) => (
                                     <li
                                         key={index}
-                                        className="flex items-center space-x-2"
+                                        className="flex items-center mb-2"
                                     >
-                                        <span className="text-green-500">
-                                            ✔
-                                        </span>
+                                        <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
                                         <span>{feature}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <button className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+                            <button className="bg-zinc-800 duration-500 text-white py-2 px-4 rounded-full w-full hover:bg-blue-600 transition">
                                 {plan.buttonText}
                             </button>
                         </div>
                     ))}
-                </div>
-
-                {/* Additional Features */}
-                <div className="mt-12 text-center">
-                    <h3 className="text-2xl font-semibold mb-4">
-                        Why Choose Us?
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                        {additionalFeatures.map((feature, index) => (
-                            <div
-                                key={index}
-                                className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md transition transform hover:scale-105"
-                            >
-                                {feature.icon}
-                                <h4 className="text-lg font-semibold mt-2">
-                                    {feature.title}
-                                </h4>
-                                <p className="text-gray-600 text-center">
-                                    {feature.description}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
                 </div>
             </div>
         </div>

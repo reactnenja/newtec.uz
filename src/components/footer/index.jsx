@@ -154,7 +154,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div className="">
                         <h3 className="text-xl font-semibold mb-4">
                             Newsletter
                         </h3>
