@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
 import { Globe, Mail, Menu, PaintRoller, Shield } from "lucide-react";
 import React, { useEffect, useState } from "react";
+// useTranslation
+import { useTranslation } from "react-i18next";
+// useTranslation
 import { CgClose } from "react-icons/cg";
 import NavbarScroll from "../../../utils/scrolls";
 import SubNav from "./subnav";
-
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
+    const { t } = useTranslation();
     // Ekran o'lchami o'zgarganda menyuni avtomatik yopish uchun hook
     useEffect(() => {
         const handleResize = () => {
@@ -43,24 +45,31 @@ const Navbar = () => {
     };
 
     const isLink = [
-        { name: "Home", href: "#hero" },
-        { name: "About", href: "#about" },
-        { name: "Blog", href: "#blog" },
-        { name: "Prices", href: "#prices" },
-        { name: "Teams", href: "#teams" },
-        { name: "Contact", href: "#contact" },
+        { name: t("home"), href: "#hero" },
+        { name: t("about"), href: "#about" },
+        { name: t("blog"), href: "#blog" },
+        { name: t("prices"), href: "#prices" },
+        { name: t("teams"), href: "#teams" },
+        { name: t("contact"), href: "#contact" },
     ];
-
     const links = [
-        { name: "Web Hosting", href: "/web-hosting", icon: <Globe /> },
-        { name: "Email Hosting", href: "/email-hosting", icon: <Mail /> },
         {
-            name: "SSL Certificates",
+            name: t("web_hosting"),
+            href: "/web-hosting",
+            icon: <Globe />,
+        },
+        {
+            name: t("email_hosting"),
+            href: "/email-hosting",
+            icon: <Mail />,
+        },
+        {
+            name: t("ssl_certificates"),
             href: "/ssl-certificates",
             icon: <Shield />,
         },
         {
-            name: "Website Builder",
+            name: t("website_builder"),
             href: "/website-builder",
             icon: <PaintRoller />,
         },
@@ -93,10 +102,10 @@ const Navbar = () => {
                         </ul>
                         <div className="flex gap-3">
                             <button className="bg-transparent duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:hover:text-white xl:hover:bg-zinc-700 2xl:hover:bg-zinc-700 2xl:hover:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline">
-                                Login
+                                {t("login")}
                             </button>
                             <button className="bg-transparent duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:hover:text-white xl:hover:bg-zinc-700 2xl:hover:bg-zinc-700 2xl:hover:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline">
-                                Register
+                                {t("register")}
                             </button>
                             <button
                                 onClick={handleOpen}
@@ -117,7 +126,9 @@ const Navbar = () => {
             >
                 <div className="bg-white/20 py-4 px-2 mb-3 flex justify-between items-center shadow">
                     <a href="/">
-                        <h1 className="text-2xl font-bold">MENU</h1>
+                        <h1 className="text-2xl font-bold">
+                            {t("navbar.menu")}
+                        </h1>
                     </a>
                     <button
                         onClick={handleOpen}

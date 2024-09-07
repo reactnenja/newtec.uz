@@ -1,5 +1,6 @@
 import { Globe, Headphones, Shield, ThumbsUp } from "lucide-react"; // Lucide ikonalarini import qildik
 import React, { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 import Typed from "typed.js";
@@ -9,16 +10,12 @@ const Hero = () => {
     // useRef ni Typed.js instansiyasi uchun ishlatamiz
     const typedRef = useRef(null);
     const elementRef = useRef(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
         // Typed.js ni ishga tushirish
         typedRef.current = new Typed(elementRef.current, {
-            strings: [
-                "Empower Your Online Presence with Top-Tier Web Hosting",
-                "Seamless Communication with Premium Email Hosting",
-                "Fortify Your Site with Trusted SSL Certificates",
-                "Craft Your Perfect Site with Our Website Builder",
-            ],
+            strings: [t("hero1"), t("hero2"), t("hero3"), t("hero4")],
             typeSpeed: 30,
             backSpeed: 20, // Istalgancha qo'shishingiz mumkin
             loop: true, // Matnlarni qayta-qayta ko'rsatish uchun
@@ -32,27 +29,23 @@ const Hero = () => {
 
     const cardData = [
         {
-            title: "Reliability",
-            description:
-                "Count on us for consistent performance and dependable services, ensuring your business runs smoothly.",
+            title: t("reliability"),
+            description: t("cardDescription1"),
             icon: <Shield size={48} className="text-blue-500" />, // Lucide dan Shield ikonasini ishlatdik
         },
         {
-            title: "Customer Satisfaction",
-            description:
-                "Our top priority is your satisfaction. We strive to exceed your expectations with our services.",
+            title: t("customer"),
+            description: t("cardDescription2"),
             icon: <ThumbsUp size={48} className="text-blue-500" />, // Lucide dan ThumbsUp ikonasini ishlatdik
         },
         {
-            title: "Global Reach",
-            description:
-                "We provide services that span the globe, making sure you can reach your audience wherever they are.",
+            title: t("global"),
+            description: t("cardDescription3"),
             icon: <Globe size={48} className="text-blue-500" />, // Lucide dan Globe ikonasini ishlatdik
         },
         {
-            title: "24/7 Support",
-            description:
-                "Our support team is available 24/7 to help you with any issues you may have.",
+            title: t("support"),
+            description: t("cardDescription4"),
             icon: <Headphones size={48} className="text-blue-500" />, // Lucide dan Headphones ikonasini ishlatdik
         },
     ];
@@ -64,10 +57,10 @@ const Hero = () => {
                         <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 font-bold leading-tight">
                             NEWTEC -{" "}
                             <span className="text-blue-500">
-                                IT Solutions Company
+                                {t("heroheading1")}
                             </span>
                         </h1>
-                        <p className="text-xl md:text-2xl font-bold leading-8 md:leading-10 mb-6">
+                        <p className="w-full md:w-10/12 sm:w-full text-xl md:text-2xl font-bold leading-8 md:leading-10 mb-6">
                             <span className="element" ref={elementRef}></span>
                         </p>
                         <div className="flex gap-3 items-center mb-8">
@@ -98,10 +91,10 @@ const Hero = () => {
                         </div>
                         <div className="flex items-center gap-3">
                             <button className="bg-zinc-950 px-4 py-2 hover:bg-zinc-800 duration-300 text-white rounded">
-                                Get Started
+                                {t("herobutton1")}
                             </button>
                             <button className="hover:bg-zinc-950 px-4 py-2 text-black hover:text-white hover:rounded bg-transparent border-b border-solid border-zinc-950 duration-700">
-                                Learn More...
+                                {t("herobutton2")}
                             </button>
                         </div>
                     </div>

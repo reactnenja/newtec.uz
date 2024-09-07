@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 const Blogs = () => {
     const [visibleCount, setVisibleCount] = useState(4);
-
+    const { t } = useTranslation();
     const blogs = [
         {
             title: "Our Blog",
@@ -77,7 +77,7 @@ const Blogs = () => {
         <div className="pt-[130px] pb-[88px] w-full h-full" id="blog">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <h1 className="text-4xl font-bold text-zinc-800 mb-10 text-center">
-                    Our Blog
+                    {t("title")}
                 </h1>
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-10">
                     {blogs.slice(0, visibleCount).map((blog, index) => (
@@ -107,7 +107,7 @@ const Blogs = () => {
                                 </p>
                                 <div className="flex justify-between">
                                     <button className="bg-zinc-900 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors">
-                                        Read More
+                                        {t("readmore")}
                                     </button>
                                     <span className="text-sm text-zinc-500 font-bold inline-block p-2">
                                         {blog.tools}
@@ -123,7 +123,7 @@ const Blogs = () => {
                             onClick={showMore}
                             className="bg-black text-white px-6 py-3 rounded-md hover:bg-zinc-800 transition-colors"
                         >
-                            Show More
+                            {t("showmore")}
                         </button>
                     </div>
                 )}

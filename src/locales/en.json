@@ -1,0 +1,51 @@
+{
+    "web": "Web hosting",
+    "email": "Email hosting",
+    "ssl": "SSL certificates",
+    "website": "Website builder",
+    "languagechanged": "Language changed",
+    "errorchanginglanguage": "Error changing language",
+
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "prices": "Prices",
+    "teams": "Teams",
+    "blog": "Blog",
+    "menu": "Menu",
+    "login": "Login",
+    "register": "Register",
+
+    "heroheading1": "IT Solutions Company",
+    "hero1": "Fortify Your Site with Trusted SSL Certificates",
+    "hero2": "Craft Your Perfect Site with Our Website Builder",
+    "hero3": "Empower Your Business with Reliable Web Hosting",
+    "hero4": "Ensure Secure Email with Our Email Hosting Service",
+
+    "global": "Global",
+    "support": "Support",
+    "reliability": "Reliability",
+    "customer": "Customer",
+
+    "cardDescription1": "We offer services that cover the entire planet to help you reach your audience anywhere.",
+    "cardDescription2": "We offer services that cover the entire planet to help you reach your audience anywhere.",
+    "cardDescription3": "We offer services that cover the entire planet to help you reach your audience anywhere.",
+    "cardDescription4": "We offer services that cover the entire planet to help you reach your audience anywhere.",
+
+    "herobutton1": "Get Started",
+    "herobutton2": "Learn More...",
+
+    "about1": "Portfolio",
+    "about2": "Teams",
+    "about3": "Clients",
+    "about4": "Projects",
+
+    "aboutus1": "About Us",
+    "aboutus2": "Empowering Your Digital Presence",
+    "aboutus3": " At NewTect, we specialize in providing comprehensive services to bring your ideas to life. From web and mobile development to desktop applications, our team of skilled developers is dedicated to creating innovative solutions tailored to your needs. We also  offer top-notch DevOps services, ensuring your projects are deployed, monitored, and maintained with the highest level of efficiency and security. With our domain hosting and SSL certificate services, you can trust that your online presence is secure and reliable.",
+
+    "title": "Our Blog",
+    "readmore": "Read More",
+    "showmore": "Show More"
+}

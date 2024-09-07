@@ -184,7 +184,6 @@ const Contact = () => {
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d67796.68558029651!2d69.14955940926306!3d41.32586168505353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b685b689e13%3A0xaf4cdf526e02f5e7!2sHilton%20Tashkent%20City!5e0!3m2!1sen!2s!4v1725598186516!5m2!1sen!2s"
                             width="100%"
                             height="450"
-                            allowfullscreen=""
                             style={{
                                 border: 0,
                                 borderRadius: "20px",
@@ -192,7 +191,6 @@ const Contact = () => {
                                 focus: "none",
                             }}
                             loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
                 </div>

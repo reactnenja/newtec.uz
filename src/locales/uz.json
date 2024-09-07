@@ -1,0 +1,52 @@
+{
+    "web": "Veb hosting",
+    "email": "Email hosting",
+    "ssl": "SSL sertifikatlar",
+    "website": "Veb sayt qurish",
+    "languagechanged": "Til o'zgartirildi",
+    "errorchanginglanguage": "Til o'zgartirishda xatolik",
+
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "services": "Xizmatlar",
+    "contact": "Aloqa",
+    "prices": "Narxi",
+    "teams": "Jamoa",
+    "blog": "Blog",
+
+    "menu": "Menyu",
+    "login": "Kirish",
+    "register": "Ro'yxatdan o'tish",
+
+    "heroheading1": "IT yechimlar kompaniyasi",
+    "hero1": "Saytini ishonchli SSL sertifikatlar bilan himoya qiling",
+    "hero2": "Bizning sayt qurish kontstruktorimiz yordamida perfekt saytingizni yasating",
+    "hero3": "Saytingizni ishonchli, Web hosting bilan quvvatlaning",
+    "hero4": "Bizning Email hosting xizmati, bilan ishonchli elektron pochta xizmatini ta'minlang.",
+
+    "global": "Global",
+    "support": "24/7 yordam",
+    "reliability": "Ishonchlilik",
+    "customer": "Mijozlar yetarli",
+
+    "cardDescription1": "Bizning xizmatlarimizning ishonchliligi va ishonchli xizmatlarni ta'minlashga qaratilgan. Bu sizning ish faoliyatingizni to'g'ridan to'g'ri olib boradi.",
+    "cardDescription2": "Bizning asosiy maqsadimiz - mijozlarimizning yetarli bo'lishidir. Biz xizmatlarimiz bilan mijozlarimizning kutubxonalarini oshirishga harakat qilamiz.",
+    "cardDescription3": "Biz sizga eng yaxshi imkoniyatlarni ta'minlashga qaratilgan. Bizning jamoamiz sizning yetarli bo'lishiga ishonchli bo'lishga harakat qiladi.",
+    "cardDescription4": "Biz sizga eng yaxshi imkoniyatlarni ta'minlashga qaratilgan. Bizning jamoamiz sizning yetarli bo'lishiga ishonchli bo'lishga harakat qiladi.",
+
+    "herobutton1": "Boshlang",
+    "herobutton2": "Batafsil...",
+
+    "about1": "Portfolio",
+    "about2": "Jamoa",
+    "about3": "Mijozlar",
+    "about4": "Loyiha",
+
+    "aboutus1": "Biz haqimizda",
+    "aboutus2": "Raqamli mavjudligingizni kuchaytirish",
+    "aboutus3": "NewTect-da biz sizning g'oyalaringizni hayotga tatbiq etish uchun keng qamrovli xizmatlarni taqdim etishga ixtisoslashganmiz. Veb va mobil dasturlarni ishlab chiqishdan ish stoli ilovalarigacha, bizning malakali dasturchilar jamoasi sizning ehtiyojlaringizga moslashtirilgan innovatsion echimlarni yaratishga bag'ishlangan. Shuningdek, biz eng yuqori darajadagi DevOps xizmatlarini taklif etamiz, bu sizning loyihalaringizning eng yuqori darajadagi samaradorlik va xavfsizlik bilan joylashtirilishini, monitoringini va saqlanishini ta'minlaydi. Bizning domen hosting va SSL sertifikat xizmatlarimiz bilan siz onlayn mavjudligingiz xavfsiz va ishonchli ekanligiga ishonishingiz mumkin.",
+
+    "title": "Bizning Blog",
+    "readmore": "Ko'proq o'qing",
+    "showmore": "Ko'proq ko'rish"
+}

@@ -1,44 +1,53 @@
 import { Globe, Mail, Moon, PaintRoller, Shield, Sun } from "lucide-react";
 import React, { useState } from "react";
-
+import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 const SubNav = () => {
     const [click, setClick] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState({
         icon: <span className="fi fi-us"></span>,
-        name: "English",
+        name: "en",
     });
-
+    const { i18n } = useTranslation();
+    const { t } = useTranslation();
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
 
     const selectLanguage = (language) => {
         setSelectedLanguage(language);
+        i18n.changeLanguage(language.name)
+            .then(() => {
+                toast.success(t("languagechanged"));
+                // localStorage.setItem("language", language.name);
+            })
+            .catch((error) => {
+                toast.error(t("errorchanginglanguage"), error);
+            });
         setIsOpen(false);
     };
-
     const languages = [
-        { icon: <span className="fi fi-us"></span>, name: "English" },
-        { icon: <span className="fi fi-ru"></span>, name: "Russian" },
-        { icon: <span className="fi fi-uz"></span>, name: "Uzbek" },
+        { icon: <span className="fi fi-us"></span>, name: "en" },
+        { icon: <span className="fi fi-ru"></span>, name: "ru" },
+        { icon: <span className="fi fi-uz"></span>, name: "uz" },
     ];
 
     const links = [
-        { name: "Web Hosting", href: "/web-hosting", icon: <Globe /> },
-        { name: "Email Hosting", href: "/email-hosting", icon: <Mail /> },
+        { name: t("web"), href: "/web-hosting", icon: <Globe /> },
+        { name: t("email"), href: "/email-hosting", icon: <Mail /> },
         {
-            name: "SSL Certificates",
+            name: t("ssl"),
             href: "/ssl-certificates",
             icon: <Shield />,
         },
         {
-            name: "Website Builder",
+            name: t("website"),
             href: "/website-builder",
             icon: <PaintRoller />,
         },
     ];
-
+    console.log(t("web"));
     const handleClick = () => {
         setClick(!click);
     };
@@ -51,7 +60,7 @@ const SubNav = () => {
                         href="/contact"
                         className="hover:scale-95 duration-700 text-white hover:text-white rounded-md transition-all p-2"
                     >
-                        Contact
+                        {t("contact")}
                     </a>
                     <div className="flex gap-4 items-center">
                         <ul className="hidden gap-4 lg:flex xl:flex 2xl:flex">
@@ -98,7 +107,7 @@ const SubNav = () => {
                                 </button>
 
                                 {isOpen && (
-                                    <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                                    <div className="absolute z-50 right-0 mt-2 w-28 border border-gray-300 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                                         <div className="py-1">
                                             {languages.map(
                                                 (language, index) => (
@@ -109,7 +118,7 @@ const SubNav = () => {
                                                                 language
                                                             )
                                                         }
-                                                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                                                        className=" w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
                                                     >
                                                         {language.icon}
                                                         <span className="ml-2">
