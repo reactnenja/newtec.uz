@@ -46,7 +46,37 @@
     "aboutus2": "Raqamli mavjudligingizni kuchaytirish",
     "aboutus3": "NewTect-da biz sizning g'oyalaringizni hayotga tatbiq etish uchun keng qamrovli xizmatlarni taqdim etishga ixtisoslashganmiz. Veb va mobil dasturlarni ishlab chiqishdan ish stoli ilovalarigacha, bizning malakali dasturchilar jamoasi sizning ehtiyojlaringizga moslashtirilgan innovatsion echimlarni yaratishga bag'ishlangan. Shuningdek, biz eng yuqori darajadagi DevOps xizmatlarini taklif etamiz, bu sizning loyihalaringizning eng yuqori darajadagi samaradorlik va xavfsizlik bilan joylashtirilishini, monitoringini va saqlanishini ta'minlaydi. Bizning domen hosting va SSL sertifikat xizmatlarimiz bilan siz onlayn mavjudligingiz xavfsiz va ishonchli ekanligiga ishonishingiz mumkin.",
 
-    "title": "Bizning Blog",
+    "blog1": "Bizning Blog",
+    "blog2": "Yana ko'rsatish",
     "readmore": "Ko'proq o'qing",
-    "showmore": "Ko'proq ko'rish"
+
+    "title1": "Web Dizayn Trendlari 2024",
+    "title2": "React Hooks: Chuqur Tahlil",
+    "title3": "SEO Strategiyalari",
+    "title4": "JavaScript: Asosiy Tushunchalar",
+    "title5": "UI/UX Dizayn Prinsiplari",
+    "title6": "Backend Arxitekturasi",
+    "title7": "Machine Learning Asoslari",
+    "title8": "Kiberhavfsizlik: Zamonaviy Yondashuvlar",
+    "title9": "Blockchain Texnologiyasi",
+
+    "author1": "Aziza Karimova",
+    "author2": "Bobur Aliyev",
+    "author3": "Aziza Karimova",
+    "author4": "Bobur Aliyev",
+    "author5": "Nilufar Akbarova",
+    "author6": "Tohir Zokirov",
+    "author7": "Jahongir Tursunov",
+    "author8": "Sarvinoz Qodirova",
+    "author9": "Malika Rahimova",
+
+    "excerpt1": "Web dizayn trendlari 2024-yilda qo'llaniladigan yangi texnologiyalar va usullar haqida ma'lumotlar.",
+    "excerpt2": "React Hooks-ning barcha jihatlari va ulardan samarali foydalanish usullari.",
+    "excerpt3": "SEO strategiyalari va ulardan foydalanishning eng yaxshi usullari.",
+    "excerpt4": "JavaScript-ning asosiy tushunchalari va ulardan foydalanishning eng yaxshi usullari.",
+    "excerpt5": "Foydalanuvchilar uchun qulay va jozibali interfeyslar yaratish sirlari.",
+    "excerpt6": "Kuchli va masshtablanadigan backend tizimlarini loyihalash usullari.",
+    "excerpt7": "Machine Learning-ning asosiy tushunchalari va ularning amaliy qo'llanilishi.",
+    "excerpt8": "Raqamli dunyo xavfsizligini ta'minlashning eng yangi usullari.",
+    "excerpt9": "Blockchain texnologiyasining ishlash prinsipi va uning kelajakdagi roli."
 }

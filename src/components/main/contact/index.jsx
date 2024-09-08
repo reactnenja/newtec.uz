@@ -1,5 +1,4 @@
-import emailjs from "@emailjs/browser";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
     FaChevronDown,
@@ -15,9 +14,9 @@ import {
 } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const Contact = () => {
     const { t } = useTranslation();
-    const form = useRef();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -40,30 +39,43 @@ const Contact = () => {
             !formData.subject ||
             !formData.message
         ) {
-            toast.error("Iltimos, barcha maydonlarni to'ldiring");
+            toast.error(t("Iltimos, barcha maydonlarni to'ldiring"));
             return;
         }
 
+        const apiFormData = new FormData();
+        apiFormData.append(
+            "service_id",
+            process.env.REACT_APP_EMAILJS_SERVICE_ID
+        );
+        apiFormData.append(
+            "template_id",
+            process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+        );
+        apiFormData.append("user_id", process.env.REACT_APP_EMAILJS_USER_ID);
+
+        Object.keys(formData).forEach((key) => {
+            apiFormData.append(key, formData[key]);
+        });
+
         try {
-            const result = await emailjs.sendForm(
-                "service_no2jvv7",
-                "template_z4am2kl",
-                form.current,
-                "XEB9PPgwmar-JlTCs"
+            const response = await fetch(
+                "https://api.emailjs.com/api/v1.0/email/send-form",
+                { method: "POST", body: apiFormData }
             );
 
-            if (result.text === "OK") {
-                toast.success("Xabar muvaffaqiyatli yuborildi!");
+            if (response.ok) {
+                toast.success(t("Xabar muvaffaqiyatli yuborildi!"));
                 setFormData({ name: "", email: "", subject: "", message: "" });
             } else {
-                toast.error(
-                    "Xabar yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring."
-                );
+                throw new Error("Xabar yuborishda xatolik yuz berdi");
             }
         } catch (error) {
             console.error("Error sending email:", error);
             toast.error(
-                "Xabar yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring."
+                t(
+                    "Xabar yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring."
+                )
             );
         }
     };
@@ -88,20 +100,22 @@ const Contact = () => {
     };
 
     return (
-        <section className="pt-20 pb-16 bg-gray-100" id="contact">
+        <section className="py-20 bg-gray-100" id="contact">
             <ToastContainer position="top-right" autoClose={5000} />
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">
-                    Biz bilan bog'laning
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-16 text-center">
+                    {t("Biz bilan bog'laning")}
                 </h1>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Contact ma'lumotlari */}
-                    <div className="space-y-8 bg-white p-6 md:p-8 rounded-lg shadow-lg">
+                    <div className="space-y-10 bg-white p-8 rounded-xl shadow-lg">
                         <div className="flex items-start space-x-4">
-                            <FaMapMarkerAlt className="text-2xl text-zinc-800 mt-1" />
+                            <span className="text-3xl text-blue-500">
+                                <FaMapMarkerAlt />
+                            </span>
                             <div>
                                 <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                                    Manzil
+                                    {t("Manzil")}
                                 </h2>
                                 <p className="text-gray-600">
                                     Navoiy ko'chasi, 22-uy, Toshkent,
@@ -110,10 +124,12 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="flex items-start space-x-4">
-                            <FaPhone className="text-2xl text-zinc-800 mt-1" />
+                            <span className="text-3xl text-blue-500">
+                                <FaPhone />
+                            </span>
                             <div>
                                 <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                                    Telefon
+                                    {t("Telefon")}
                                 </h2>
                                 <p className="text-gray-600">
                                     +998 90 123 45 67
@@ -121,10 +137,12 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="flex items-start space-x-4">
-                            <FaEnvelope className="text-2xl text-zinc-800 mt-1" />
+                            <span className="text-3xl text-blue-500">
+                                <FaEnvelope />
+                            </span>
                             <div>
                                 <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                                    Email
+                                    {t("Email")}
                                 </h2>
                                 <p className="text-gray-600">
                                     info@example.com
@@ -133,55 +151,55 @@ const Contact = () => {
                         </div>
                         <div>
                             <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                                Ijtimoiy tarmoqlar
+                                {t("Ijtimoiy tarmoqlar")}
                             </h2>
                             <div className="flex space-x-4">
                                 <a
                                     href="https://www.instagram.com"
-                                    className="text-zinc-800 hover:text-blue-800 text-2xl"
+                                    className="text-gray-600 hover:text-blue-500 transition duration-300"
                                 >
-                                    <FaInstagram />
+                                    <FaInstagram className="text-2xl" />
                                 </a>
                                 <a
                                     href="https://www.facebook.com"
-                                    className="text-zinc-800 hover:text-blue-800 text-2xl"
+                                    className="text-gray-600 hover:text-blue-500 transition duration-300"
                                 >
-                                    <FaFacebook />
+                                    <FaFacebook className="text-2xl" />
                                 </a>
                                 <a
                                     href="https://www.twitter.com"
-                                    className="text-zinc-800 hover:text-blue-800 text-2xl"
+                                    className="text-gray-600 hover:text-blue-500 transition duration-300"
                                 >
-                                    <FaTwitter />
+                                    <FaTwitter className="text-2xl" />
                                 </a>
                                 <a
                                     href="https://www.linkedin.com"
-                                    className="text-zinc-800 hover:text-blue-800 text-2xl"
+                                    className="text-gray-600 hover:text-blue-500 transition duration-300"
                                 >
-                                    <FaLinkedin />
+                                    <FaLinkedin className="text-2xl" />
                                 </a>
                                 <a
                                     href="https://www.youtube.com"
-                                    className="text-zinc-800 hover:text-blue-800 text-2xl"
+                                    className="text-gray-600 hover:text-blue-500 transition duration-300"
                                 >
-                                    <FaYoutube />
+                                    <FaYoutube className="text-2xl" />
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     {/* Aloqa formasi */}
-                    <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                            Xabar yuborish
+                    <div className="bg-white p-8 rounded-xl shadow-lg">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-8">
+                            {t("Xabar yuborish")}
                         </h2>
-                        <form ref={form} onSubmit={handleSubmit}>
-                            <div className="mb-4">
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div>
                                 <label
                                     htmlFor="name"
-                                    className="block text-gray-700 mb-2"
+                                    className="block text-gray-700 mb-2 font-medium"
                                 >
-                                    Ism
+                                    {t("Ism")}
                                 </label>
                                 <input
                                     type="text"
@@ -189,16 +207,16 @@ const Contact = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-800"
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                                     required
                                 />
                             </div>
-                            <div className="mb-4">
+                            <div>
                                 <label
                                     htmlFor="email"
-                                    className="block text-gray-700 mb-2"
+                                    className="block text-gray-700 mb-2 font-medium"
                                 >
-                                    Email
+                                    {t("Email")}
                                 </label>
                                 <input
                                     type="email"
@@ -206,16 +224,16 @@ const Contact = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-800"
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                                     required
                                 />
                             </div>
-                            <div className="mb-4">
+                            <div>
                                 <label
                                     htmlFor="subject"
-                                    className="block text-gray-700 mb-2"
+                                    className="block text-gray-700 mb-2 font-medium"
                                 >
-                                    Mavzu
+                                    {t("Mavzu")}
                                 </label>
                                 <input
                                     type="text"
@@ -223,16 +241,16 @@ const Contact = () => {
                                     name="subject"
                                     value={formData.subject}
                                     onChange={handleChange}
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-800"
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                                     required
                                 />
                             </div>
-                            <div className="mb-6">
+                            <div>
                                 <label
                                     htmlFor="message"
-                                    className="block text-gray-700 mb-2"
+                                    className="block text-gray-700 mb-2 font-medium"
                                 >
-                                    Xabar
+                                    {t("Xabar")}
                                 </label>
                                 <textarea
                                     id="message"
@@ -240,15 +258,15 @@ const Contact = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows="4"
-                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-800"
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                                     required
                                 ></textarea>
                             </div>
                             <button
                                 type="submit"
-                                className="w-full bg-zinc-800 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300"
+                                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 font-medium text-lg"
                             >
-                                Yuborish
+                                {t("Yuborish")}
                             </button>
                         </form>
                     </div>
@@ -256,10 +274,10 @@ const Contact = () => {
 
                 {/* FAQ section */}
                 <div className="mt-16">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                        Ko'p so'raladigan savollar
+                    <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+                        {t("Ko'p so'raladigan savollar")}
                     </h2>
-                    <div className="space-y-4">
+                    <div className="space-y-4 max-w-3xl mx-auto">
                         {faqData.map((faq, index) => (
                             <div
                                 key={index}
@@ -270,7 +288,7 @@ const Contact = () => {
                                     onClick={() => toggleFaq(index)}
                                 >
                                     <span className="font-semibold">
-                                        {faq.question}
+                                        {t(faq.question)}
                                     </span>
                                     {openFaq === index ? (
                                         <FaChevronUp />
@@ -281,7 +299,7 @@ const Contact = () => {
                                 {openFaq === index && (
                                     <div className="p-4 pt-0">
                                         <p className="text-gray-600">
-                                            {faq.answer}
+                                            {t(faq.answer)}
                                         </p>
                                     </div>
                                 )}
@@ -290,21 +308,20 @@ const Contact = () => {
                     </div>
                 </div>
 
-                {/* Google xarita */}
+                {/* Google Map */}
                 <div className="mt-16">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                        Bizning joylashuv
+                    <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+                        {t("Bizning joylashuv")}
                     </h2>
-                    <div className="w-full h-[300px] md:h-[400px] lg:h-[465px] rounded-lg overflow-hidden shadow-lg">
+                    <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d67796.68558029651!2d69.14955940926306!3d41.32586168505353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b685b689e13%3A0xaf4cdf526e02f5e7!2sHilton%20Tashkent%20City!5e0!3m2!1sen!2s!4v1725598186516!5m2!1sen!2s"
                             width="100%"
                             height="100%"
-                            style={{
-                                border: 0,
-                                borderRadius: "0.5rem",
-                            }}
+                            style={{ border: 0 }}
+                            allowFullScreen=""
                             loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
                 </div>

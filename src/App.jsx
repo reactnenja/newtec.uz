@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 import Main from "./components/main";
 import "./i18n.jsx";
+import ScrollToTopButton from "./utils/topButtons.jsx";
 const App = () => {
     return (
         <>
@@ -12,6 +13,7 @@ const App = () => {
             <Header />
             <Main />
             <Footer />
+            <ScrollToTopButton />
         </>
     );
 };

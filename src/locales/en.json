@@ -45,7 +45,37 @@
     "aboutus2": "Empowering Your Digital Presence",
     "aboutus3": " At NewTect, we specialize in providing comprehensive services to bring your ideas to life. From web and mobile development to desktop applications, our team of skilled developers is dedicated to creating innovative solutions tailored to your needs. We also  offer top-notch DevOps services, ensuring your projects are deployed, monitored, and maintained with the highest level of efficiency and security. With our domain hosting and SSL certificate services, you can trust that your online presence is secure and reliable.",
 
-    "title": "Our Blog",
+    "blog1": "Our Blog",
+    "blog2": "Show More",
     "readmore": "Read More",
-    "showmore": "Show More"
+
+    "title1": "Web Design Trends 2024",
+    "title2": "React Hooks: Deep Analysis",
+    "title3": "SEO Strategies",
+    "title4": "JavaScript: Basic Concepts",
+    "title5": "UI/UX Design Principles",
+    "title6": "Backend Architecture",
+    "title7": "Fundamentals of Machine Learning",
+    "title8": "Cyber ​​Security: Contemporary Approaches",
+    "title9": "Blockchain Technology",
+
+    "author1": "Aziza Karimova",
+    "author2": "Bobur Aliyev",
+    "author3": "Aziza Karimova",
+    "author4": "Bobur Aliyev",
+    "author5": "Nilufar Akbarova",
+    "author6": "Tohir Zokirov",
+    "author7": "Jahongir Tursunov",
+    "author8": "Sarvinoz Qodirova",
+    "author9": "Malika Rahimova",
+
+    "excerpt1": "Web design trends 2024 information about new technologies and methods.",
+    "excerpt2": "All aspects of React Hooks and how to use them effectively.",
+    "excerpt3": "SEO strategies and the best ways to use them.",
+    "excerpt4": "Basic JavaScript concepts and the best ways to use them.",
+    "excerpt5": "Secrets of creating user-friendly and attractive interfaces.",
+    "excerpt6": "Ways to design robust and scalable backend systems.",
+    "excerpt7": "Basic concepts of Machine Learning and their practical applications.",
+    "excerpt8": "The latest ways to secure the digital world.",
+    "excerpt9": "The working principle of blockchain technology and its future role."
 }
