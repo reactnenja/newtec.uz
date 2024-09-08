@@ -32,7 +32,7 @@ const About = () => {
                 </h2>
                 <div className="flex flex-col lg:flex-row justify-between gap-10 items-start py-10">
                     <div className="w-full lg:w-1/2">
-                        <h2 className="text-6xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-zinc-800 leading-snug mb-6">
+                        <h2 className="text-2xl md:text-2xl lg:text-5xl xl:text-6xl font-bold text-zinc-800 leading-snug mb-6">
                             {t("aboutus2")}
                         </h2>
                         <p className="text-zinc-500 text-base md:text-lg lg:text-xl leading-relaxed">
