@@ -12,7 +12,7 @@ import {
     FaTwitter,
     FaYoutube,
 } from "react-icons/fa";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
@@ -26,72 +26,20 @@ const Contact = () => {
 
     const [openFaq, setOpenFaq] = useState(null);
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (
-            !formData.name ||
-            !formData.email ||
-            !formData.subject ||
-            !formData.message
-        ) {
-            toast.error(t("Iltimos, barcha maydonlarni to'ldiring"));
-            return;
-        }
-
-        const apiFormData = new FormData();
-        apiFormData.append(
-            "service_id",
-            process.env.REACT_APP_EMAILJS_SERVICE_ID
-        );
-        apiFormData.append(
-            "template_id",
-            process.env.REACT_APP_EMAILJS_TEMPLATE_ID
-        );
-        apiFormData.append("user_id", process.env.REACT_APP_EMAILJS_USER_ID);
-
-        Object.keys(formData).forEach((key) => {
-            apiFormData.append(key, formData[key]);
-        });
-
-        try {
-            const response = await fetch(
-                "https://api.emailjs.com/api/v1.0/email/send-form",
-                { method: "POST", body: apiFormData }
-            );
-
-            if (response.ok) {
-                toast.success(t("Xabar muvaffaqiyatli yuborildi!"));
-                setFormData({ name: "", email: "", subject: "", message: "" });
-            } else {
-                throw new Error("Xabar yuborishda xatolik yuz berdi");
-            }
-        } catch (error) {
-            console.error("Error sending email:", error);
-            toast.error(
-                t(
-                    "Xabar yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring."
-                )
-            );
-        }
-    };
-
+    const handleChange = (e) => {};
+    const handleSubmit = (e) => {};
     const faqData = [
         {
-            question: "Sizning xizmatlaringiz qanday?",
-            answer: "Biz turli sohalarda professional xizmatlar ko'rsatamiz. Bu xizmatlar orasida veb-dizayn, dasturlash, marketing va boshqalar mavjud.",
+            question: t("question1"),
+            answer: t("answer1"),
         },
         {
-            question: "Narxlar qanday?",
-            answer: "Narxlar loyihaning murakkabligi va hajmiga qarab o'zgaradi. Aniq narxlarni bilish uchun biz bilan bog'laning.",
+            question: t("question2"),
+            answer: t("answer2"),
         },
         {
-            question: "Loyiha muddatlari qanday?",
-            answer: "Loyiha muddatlari ham loyihaning murakkabligi va hajmiga bog'liq. Odatda, kichik loyihalar 2-4 hafta, o'rta loyihalar 1-3 oy, katta loyihalar 3-6 oy davom etadi.",
+            question: t("question3"),
+            answer: t("answer3"),
         },
     ];
 
@@ -104,7 +52,7 @@ const Contact = () => {
             <ToastContainer position="top-right" autoClose={5000} />
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-16 text-center">
-                    {t("Biz bilan bog'laning")}
+                    {t("contactus1")}
                 </h1>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Contact ma'lumotlari */}
@@ -115,12 +63,9 @@ const Contact = () => {
                             </span>
                             <div>
                                 <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                                    {t("Manzil")}
+                                    {t("addressTitle")}
                                 </h2>
-                                <p className="text-gray-600">
-                                    Navoiy ko'chasi, 22-uy, Toshkent,
-                                    O'zbekiston
-                                </p>
+                                <p className="text-gray-600">{t("address")}</p>
                             </div>
                         </div>
                         <div className="flex items-start space-x-4">
@@ -129,7 +74,7 @@ const Contact = () => {
                             </span>
                             <div>
                                 <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                                    {t("Telefon")}
+                                    {t("phoneTitle")}
                                 </h2>
                                 <p className="text-gray-600">
                                     +998 90 123 45 67
@@ -142,7 +87,7 @@ const Contact = () => {
                             </span>
                             <div>
                                 <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                                    {t("Email")}
+                                    {t("emailsTitle")}
                                 </h2>
                                 <p className="text-gray-600">
                                     info@example.com
@@ -151,7 +96,7 @@ const Contact = () => {
                         </div>
                         <div>
                             <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                                {t("Ijtimoiy tarmoqlar")}
+                                {t("titleSocial")}
                             </h2>
                             <div className="flex space-x-4">
                                 <a
@@ -191,7 +136,7 @@ const Contact = () => {
                     {/* Aloqa formasi */}
                     <div className="bg-white p-8 rounded-xl shadow-lg">
                         <h2 className="text-3xl font-bold text-gray-800 mb-8">
-                            {t("Xabar yuborish")}
+                            {t("formTitle")}
                         </h2>
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
@@ -199,7 +144,7 @@ const Contact = () => {
                                     htmlFor="name"
                                     className="block text-gray-700 mb-2 font-medium"
                                 >
-                                    {t("Ism")}
+                                    {t("name")}
                                 </label>
                                 <input
                                     type="text"
@@ -216,7 +161,7 @@ const Contact = () => {
                                     htmlFor="email"
                                     className="block text-gray-700 mb-2 font-medium"
                                 >
-                                    {t("Email")}
+                                    {t("mail")}
                                 </label>
                                 <input
                                     type="email"
@@ -233,7 +178,7 @@ const Contact = () => {
                                     htmlFor="subject"
                                     className="block text-gray-700 mb-2 font-medium"
                                 >
-                                    {t("Mavzu")}
+                                    {t("subject")}
                                 </label>
                                 <input
                                     type="text"
@@ -250,7 +195,7 @@ const Contact = () => {
                                     htmlFor="message"
                                     className="block text-gray-700 mb-2 font-medium"
                                 >
-                                    {t("Xabar")}
+                                    {t("message")}
                                 </label>
                                 <textarea
                                     id="message"
@@ -266,7 +211,7 @@ const Contact = () => {
                                 type="submit"
                                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 font-medium text-lg"
                             >
-                                {t("Yuborish")}
+                                {t("send")}
                             </button>
                         </form>
                     </div>
@@ -275,7 +220,7 @@ const Contact = () => {
                 {/* FAQ section */}
                 <div className="mt-16">
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-                        {t("Ko'p so'raladigan savollar")}
+                        {t("faq1")}
                     </h2>
                     <div className="space-y-4 max-w-3xl mx-auto">
                         {faqData.map((faq, index) => (
@@ -311,7 +256,7 @@ const Contact = () => {
                 {/* Google Map */}
                 <div className="mt-16">
                     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-                        {t("Bizning joylashuv")}
+                        {t("mapsTitle")}
                     </h2>
                     <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
                         <iframe

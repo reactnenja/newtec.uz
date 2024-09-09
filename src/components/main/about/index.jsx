@@ -25,7 +25,7 @@ const About = () => {
     ];
 
     return (
-        <div className="pt-[150px] pb-[88px] w-full" id="about">
+        <div className="pt-[50px] w-full" id="about">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <h2 className="text-4xl font-bold text-left">
                     {t("aboutus1")}

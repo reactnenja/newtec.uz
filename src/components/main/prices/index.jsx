@@ -1,10 +1,12 @@
-import { CheckCircle } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { CheckCircle, XCircle } from "lucide-react";
 import React, { useState } from "react";
 
 const Prices = () => {
     const [billingCycle, setBillingCycle] = useState("monthly");
     const [selectedSection, setSelectedSection] = useState("Web Hosting");
-    const [isSearchVisible, setSearchVisible] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const pricingPlans = {
         "Web Hosting": [
@@ -51,80 +53,30 @@ const Prices = () => {
                 buttonText: "Select",
             },
         ],
-        "Business Email": [
-            {
-                name: "Enterprise Email",
-                price: { monthly: 1.49, yearly: 17.88, bonus: 1.34 },
-                features: [
-                    "10 GB Storage",
-                    "50 Email Aliases",
-                    "Custom Domain",
-                    "Webmail Access",
-                    "IMAP/POP3/SMTP",
-                    "24/7 Support",
-                ],
-                buttonText: "Select",
-            },
-            {
-                name: "Enterprise Email Plus",
-                price: { monthly: 2.99, yearly: 35.88, bonus: 2.69 },
-                features: [
-                    "30 GB Storage",
-                    "Unlimited Email Aliases",
-                    "Custom Domain",
-                    "Webmail Access",
-                    "IMAP/POP3/SMTP",
-                    "Advanced Spam Filter",
-                    "24/7 Support",
-                ],
-                buttonText: "Select",
-            },
-        ],
-        "Website Builder": [
-            {
-                name: "Starter",
-                price: { monthly: 7.99, yearly: 95.88, bonus: 7.19 },
-                features: [
-                    "Free Domain",
-                    "Free SSL Certificate",
-                    "30+ Templates",
-                    "Mobile-Optimized",
-                    "E-Commerce Features",
-                    "24/7 Customer Support",
-                ],
-                buttonText: "Start Building",
-            },
-            {
-                name: "Business",
-                price: { monthly: 11.99, yearly: 143.88, bonus: 10.79 },
-                features: [
-                    "Free Domain",
-                    "Free SSL Certificate",
-                    "100+ Templates",
-                    "Mobile-Optimized",
-                    "Advanced E-Commerce",
-                    "SEO Tools",
-                    "Priority Support",
-                ],
-                buttonText: "Start Building",
-            },
-        ],
+        // Add more categories here...
     };
 
     const calculatePrice = (prices) => {
         const price = prices[billingCycle];
-        if (typeof price !== "number") {
-            console.error("Invalid price");
-            return "N/A";
-        }
-        return price.toFixed(2);
+        return price ? price.toFixed(2) : "N/A";
+    };
+
+    const openModal = (plan) => {
+        setSelectedPlan(plan);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
     };
 
     return (
-        <div className="bg-gray-50 pt-[138px] pb-[88px]" id="prices">
-            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
-                <h2 className="text-5xl font-bold text-left mb-10">Pricing</h2>
-                {/* Section Toggle */}
+        <div className="bg-gray-50 py-20" id="prices">
+            <div className="container mx-auto px-4 md:px-20">
+                <h2 className="text-5xl font-bold text-center mb-12">
+                    Pricing
+                </h2>
+
                 {/* Billing Cycle Toggle */}
                 <div className="text-center mb-10">
                     <div className="inline-flex border rounded-lg overflow-hidden">
@@ -134,16 +86,17 @@ const Prices = () => {
                                 onClick={() => setBillingCycle(cycle)}
                                 className={`px-4 py-2 ${
                                     billingCycle === cycle
-                                        ? "bg-zinc-800 duration-500 text-white"
+                                        ? "bg-zinc-800 text-white"
                                         : "bg-gray-200"
                                 } transition`}
-                                aria-label={`Select ${cycle} Billing Cycle`}
                             >
                                 {cycle.charAt(0).toUpperCase() + cycle.slice(1)}
                             </button>
                         ))}
                     </div>
                 </div>
+
+                {/* Section Toggle */}
                 <div className="text-center mb-10">
                     <div className="inline-flex flex-wrap justify-center border rounded-lg overflow-hidden">
                         {Object.keys(pricingPlans).map((section) => (
@@ -152,10 +105,9 @@ const Prices = () => {
                                 onClick={() => setSelectedSection(section)}
                                 className={`px-4 py-2 ${
                                     selectedSection === section
-                                        ? "bg-zinc-800 duration-500 text-white"
+                                        ? "bg-zinc-800 text-white"
                                         : "bg-gray-200"
                                 } transition`}
-                                aria-label={`Select ${section} Section`}
                             >
                                 {section}
                             </button>
@@ -166,9 +118,12 @@ const Prices = () => {
                 {/* Pricing Plans */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {pricingPlans[selectedSection]?.map((plan) => (
-                        <div
+                        <motion.div
                             key={plan.name}
-                            className="bg-white shadow-lg rounded-lg duration-700 cursor-pointer p-6 transition transform hover:scale-105 md:hover:scale-90 sm:hover:scale-90  max-sm:hover:scale-90 hover:shadow-2xl"
+                            onClick={() => openModal(plan)}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-white shadow-lg rounded-lg p-6 cursor-pointer transition"
                         >
                             <h2 className="text-xl font-semibold mb-4 text-center">
                                 {plan.name}
@@ -190,12 +145,69 @@ const Prices = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="bg-zinc-800 duration-500 text-white py-2 px-4 rounded-full w-full hover:bg-blue-600 transition">
+                            <button className="bg-zinc-800 text-white py-2 px-4 rounded-full w-full hover:bg-blue-600 transition">
                                 {plan.buttonText}
                             </button>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
+
+                {/* Modal */}
+                <AnimatePresence>
+                    {isModalOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50"
+                        >
+                            <motion.div
+                                initial={{ y: -50 }}
+                                animate={{ y: 0 }}
+                                exit={{ y: 50 }}
+                                className="bg-white rounded-lg shadow-xl p-6 w-full max-w-lg"
+                            >
+                                <button
+                                    onClick={closeModal}
+                                    className="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition"
+                                >
+                                    <XCircle className="w-6 h-6" />
+                                </button>
+                                <h2 className="text-xl font-semibold mb-4 text-center">
+                                    {selectedPlan?.name}
+                                </h2>
+                                <p className="text-center text-gray-600 text-2xl font-bold mb-4">
+                                    ${calculatePrice(selectedPlan?.price)}
+                                    <span className="text-sm text-gray-400">
+                                        /
+                                        {billingCycle === "yearly"
+                                            ? "year"
+                                            : "mo"}
+                                    </span>
+                                </p>
+                                <ul className="mb-6">
+                                    {selectedPlan?.features.map(
+                                        (feature, index) => (
+                                            <li
+                                                key={index}
+                                                className="flex items-center mb-2"
+                                            >
+                                                <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
+                                                <span>{feature}</span>
+                                            </li>
+                                        )
+                                    )}
+                                </ul>
+                                <button
+                                    onClick={closeModal}
+                                    className="bg-zinc-800 text-white py-2 px-4 rounded-full w-full hover:bg-blue-600 transition"
+                                >
+                                    Close
+                                </button>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

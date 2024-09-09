@@ -5,11 +5,13 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 // useTranslation
 import { CgClose } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 import NavbarScroll from "../../../utils/scrolls";
 import SubNav from "./subnav";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { t } = useTranslation();
+    const navigate = useNavigate();
     // Ekran o'lchami o'zgarganda menyuni avtomatik yopish uchun hook
     useEffect(() => {
         const handleResize = () => {
@@ -54,29 +56,29 @@ const Navbar = () => {
     ];
     const links = [
         {
-            name: t("web_hosting"),
-            href: "/web-hosting",
+            name: t("web"),
+            href: "/hosting",
             icon: <Globe />,
         },
         {
-            name: t("email_hosting"),
-            href: "/email-hosting",
+            name: t("email"),
+            href: "/hosting",
             icon: <Mail />,
         },
         {
-            name: t("ssl_certificates"),
+            name: t("ssl"),
             href: "/ssl-certificates",
             icon: <Shield />,
         },
         {
-            name: t("website_builder"),
+            name: t("website"),
             href: "/website-builder",
             icon: <PaintRoller />,
         },
     ];
 
     return (
-        <nav className="fixed top-0 w-full z-50 h-[132px] bg-white shadow-md text-black ">
+        <nav className="sticky top-0 w-full z-50 h-[132px] bg-white shadow-md text-black ">
             <div className="h-[calc(132-80)px]">
                 {" "}
                 <NavbarScroll />
@@ -101,10 +103,16 @@ const Navbar = () => {
                             ))}
                         </ul>
                         <div className="flex gap-3">
-                            <button className="bg-transparent duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:hover:text-white xl:hover:bg-zinc-700 2xl:hover:bg-zinc-700 2xl:hover:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline">
+                            <button
+                                onClick={() => navigate("/login")}
+                                className="bg-transparent duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:hover:text-white xl:hover:bg-zinc-700 2xl:hover:bg-zinc-700 2xl:hover:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline"
+                            >
                                 {t("login")}
                             </button>
-                            <button className="bg-transparent duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:hover:text-white xl:hover:bg-zinc-700 2xl:hover:bg-zinc-700 2xl:hover:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline">
+                            <button
+                                onClick={() => navigate("/register")}
+                                className="bg-transparent duration-700 transition-all lg:bg-black lg:text-white lg:px-4 lg:py-2 lg:rounded-md xl:rounded-md 2xl:rounded-md xl:bg-black 2xl:bg-black xl:text-white 2xl:text-white xl:hover:text-white xl:hover:bg-zinc-700 2xl:hover:bg-zinc-700 2xl:hover:text-white xl:px-4 xl:py-2 sm:underline md:underline sm:underline-offset-1 lg:no-underline xl:no-underline xl:hover:scale-105 2xl:hover:scale-105 sm:py-2 md:py-2 sm:hover:text-black 2xl:no-underline"
+                            >
                                 {t("register")}
                             </button>
                             <button
@@ -122,13 +130,11 @@ const Navbar = () => {
                 initial={{ x: "-100%" }}
                 animate={{ x: isOpen ? 0 : "-100%" }}
                 transition={{ duration: 0.7, ease: "easeInOut" }}
-                className="fixed top-[60px] left-0 w-full overflow-y-auto h-[800px] bg-black/20 backdrop-blur-lg"
+                className="fixed top-0 left-0 w-full overflow-y-auto h-screen bg-black/20 backdrop-blur-lg"
             >
                 <div className="bg-white/20 py-4 px-2 mb-3 flex justify-between items-center shadow">
                     <a href="/">
-                        <h1 className="text-2xl font-bold">
-                            {t("navbar.menu")}
-                        </h1>
+                        <h1 className="text-xl font-bold">{t("menu")}</h1>
                     </a>
                     <button
                         onClick={handleOpen}
@@ -139,7 +145,7 @@ const Navbar = () => {
                 </div>
                 <div className="container mx-auto px-4">
                     <div className="bg-black rounded-xl mb-4 p-2 w-full b h-[300px] flex justify-center items-center">
-                        <ul className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2 w-full p-4">
+                        <ul className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-1 w-full p-2">
                             {links?.map((item, index) => (
                                 <li
                                     key={index}

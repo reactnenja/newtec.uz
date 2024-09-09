@@ -131,7 +131,7 @@ const Blogs = () => {
     };
 
     return (
-        <div className="pt-[130px] pb-[88px] w-full h-full" id="blog">
+        <div className="pt-[50px] pb-[38px] w-full h-full" id="blog">
             <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">
                     {t("blog1")}

@@ -6,8 +6,15 @@ const SubNav = () => {
     const [click, setClick] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState({
-        icon: <span className="fi fi-us"></span>,
-        name: "en",
+        name: localStorage.getItem("language") || "en",
+        icon:
+            localStorage.getItem("language") === "en" ? (
+                <span className="fi fi-us"></span>
+            ) : localStorage.getItem("language") === "ru" ? (
+                <span className="fi fi-ru"></span>
+            ) : (
+                <span className="fi fi-uz"></span>
+            ),
     });
     const { i18n } = useTranslation();
     const { t } = useTranslation();
@@ -20,7 +27,7 @@ const SubNav = () => {
         i18n.changeLanguage(language.name)
             .then(() => {
                 toast.success(t("languagechanged"));
-                // localStorage.setItem("language", language.name);
+                localStorage.setItem("language", language.name);
             })
             .catch((error) => {
                 toast.error(t("errorchanginglanguage"), error);
@@ -34,7 +41,7 @@ const SubNav = () => {
     ];
 
     const links = [
-        { name: t("web"), href: "/web-hosting", icon: <Globe /> },
+        { name: t("web"), href: "/hosting", icon: <Globe /> },
         { name: t("email"), href: "/email-hosting", icon: <Mail /> },
         {
             name: t("ssl"),

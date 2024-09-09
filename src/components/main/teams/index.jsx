@@ -1,4 +1,13 @@
+import { motion } from "framer-motion";
 import React, { useState } from "react";
+import {
+    FaCode,
+    FaDesktop,
+    FaMobileAlt,
+    FaServer,
+    FaTools,
+    FaUsers,
+} from "react-icons/fa";
 
 const Teams = () => {
     const [active, setActive] = useState("All");
@@ -63,7 +72,6 @@ const Teams = () => {
             role: "Desktop Developer",
             image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
-
         {
             name: "Liam Harris",
             role: "Backend Developer",
@@ -84,13 +92,11 @@ const Teams = () => {
             role: "Desktop Developer",
             image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
-
         {
             name: "Rachel Scott",
             role: "Mobile Developer",
             image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
-
         {
             name: "Tina Turner",
             role: "Desktop Developer",
@@ -101,7 +107,6 @@ const Teams = () => {
             role: "Frontend Developer",
             image: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
         },
-
         {
             name: "Xander Hall",
             role: "DevOps Developer",
@@ -117,95 +122,93 @@ const Teams = () => {
               );
 
     return (
-        <div className="pt-[140px] pb-[88px] bg-white w-full h-auto" id="teams">
-            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
-                <div className="flex flex-col md:flex-row justify-between items-center mb-20">
-                    <div className="mb-4 md:mb-0">
-                        <h1 className="text-3xl md:text-4xl font-bold">
-                            Teams
-                        </h1>
-                    </div>
-                    <div className="w-full sm:w-full md:w-full lg:w-[800px]">
-                        <div className=" w-full rounded-lg flex items-center flex-col sm:flex-row  md:flex-row lg:flex-row justify-between">
-                            <button
-                                onClick={() => handleClick("Frontend")}
-                                className={`px-3 py-2 ${
-                                    active === "Frontend"
-                                        ? "bg-zinc-700"
-                                        : "bg-zinc-900"
-                                } text-white  hover:bg-zinc-800 rounded-md m-1 w-full `}
-                            >
-                                Frontend
-                            </button>
-                            <button
-                                onClick={() => handleClick("Backend")}
-                                className={`px-3 py-2 ${
-                                    active === "Backend"
-                                        ? "bg-zinc-700"
-                                        : "bg-zinc-900"
-                                } text-white  hover:bg-zinc-800 rounded-md  m-1 w-full `}
-                            >
-                                Backend
-                            </button>
-                            <button
-                                onClick={() => handleClick("DevOps")}
-                                className={`px-3 py-2 ${
-                                    active === "DevOps"
-                                        ? "bg-zinc-700"
-                                        : "bg-zinc-900"
-                                } text-white  hover:bg-zinc-800 rounded-md m-1 w-full `}
-                            >
-                                DevOps
-                            </button>
-                            <button
-                                onClick={() => handleClick("Mobile")}
-                                className={`px-3 py-2 ${
-                                    active === "Mobile"
-                                        ? "bg-zinc-700"
-                                        : "bg-zinc-900"
-                                } text-white hover:bg-zinc-800 rounded-md m-1 w-full `}
-                            >
-                                Mobile
-                            </button>
-                            <button
-                                onClick={() => handleClick("Desktop")}
-                                className={`px-3 py-2 ${
-                                    active === "Desktop"
-                                        ? "bg-zinc-700"
-                                        : "bg-zinc-900"
-                                } text-white  hover:bg-zinc-800 rounded-md m-1 w-full `}
-                            >
-                                Desktop
-                            </button>
-                            <button
-                                onClick={() => handleClick("All")}
-                                className={`px-3 py-2 ${
-                                    active === "All"
-                                        ? "bg-zinc-700"
-                                        : "bg-zinc-900"
-                                } text-white rounded-md hover:bg-zinc-800 m-1 w-full `}
-                            >
-                                Teams
-                            </button>
-                        </div>
+        <div
+            className="pt-[140px] pb-[88px] bg-gradient-to-b from-gray-100 to-gray-50 w-full h-auto"
+            id="teams"
+        >
+            <div className="container mx-auto px-4 md:px-20">
+                <div className="flex flex-col md:flex-row justify-between items-center mb-10">
+                    <h1 className="text-4xl font-extrabold mb-4 md:mb-0 text-center md:text-left text-gray-800">
+                        Our Amazing Team
+                    </h1>
+                    <div className="flex flex-wrap justify-center">
+                        <button
+                            onClick={() => handleClick("Frontend")}
+                            className={`flex items-center gap-2 px-4 py-2 m-1 text-white ${
+                                active === "Frontend"
+                                    ? "bg-blue-600"
+                                    : "bg-gray-700"
+                            } rounded-lg hover:bg-blue-500 transition`}
+                        >
+                            <FaCode /> Frontend
+                        </button>
+                        <button
+                            onClick={() => handleClick("Backend")}
+                            className={`flex items-center gap-2 px-4 py-2 m-1 text-white ${
+                                active === "Backend"
+                                    ? "bg-blue-600"
+                                    : "bg-gray-700"
+                            } rounded-lg hover:bg-blue-500 transition`}
+                        >
+                            <FaServer /> Backend
+                        </button>
+                        <button
+                            onClick={() => handleClick("DevOps")}
+                            className={`flex items-center gap-2 px-4 py-2 m-1 text-white ${
+                                active === "DevOps"
+                                    ? "bg-blue-600"
+                                    : "bg-gray-700"
+                            } rounded-lg hover:bg-blue-500 transition`}
+                        >
+                            <FaTools /> DevOps
+                        </button>
+                        <button
+                            onClick={() => handleClick("Mobile")}
+                            className={`flex items-center gap-2 px-4 py-2 m-1 text-white ${
+                                active === "Mobile"
+                                    ? "bg-blue-600"
+                                    : "bg-gray-700"
+                            } rounded-lg hover:bg-blue-500 transition`}
+                        >
+                            <FaMobileAlt /> Mobile
+                        </button>
+                        <button
+                            onClick={() => handleClick("Desktop")}
+                            className={`flex items-center gap-2 px-4 py-2 m-1 text-white ${
+                                active === "Desktop"
+                                    ? "bg-blue-600"
+                                    : "bg-gray-700"
+                            } rounded-lg hover:bg-blue-500 transition`}
+                        >
+                            <FaDesktop /> Desktop
+                        </button>
+                        <button
+                            onClick={() => handleClick("All")}
+                            className={`flex items-center gap-2 px-4 py-2 m-1 text-white ${
+                                active === "All" ? "bg-blue-600" : "bg-gray-700"
+                            } rounded-lg hover:bg-blue-500 transition`}
+                        >
+                            <FaUsers /> All Teams
+                        </button>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {filteredTeams.map((team, index) => (
-                        <div
+                        <motion.div
                             key={index}
-                            className="bg-white shadow rounded-md hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col justify-center items-center p-4"
+                            whileHover={{ scale: 1.05 }}
+                            className="bg-white shadow-lg rounded-lg p-6 text-center hover:shadow-xl transition duration-300"
                         >
                             <img
                                 src={team.image}
-                                className="rounded-full w-[80px] h-[80px] md:w-[100px] md:h-[100px] mb-3"
+                                className="rounded-full w-24 h-24 mx-auto mb-4 border-4 border-gray-300"
                                 alt={team.name}
                             />
-                            <h3 className="text-lg md:text-xl font-bold text-center">
+                            <h3 className="text-xl font-semibold">
                                 {team.name}
                             </h3>
-                            <p className="text-center">{team.role}</p>
-                        </div>
+                            <p className="text-gray-500">{team.role}</p>
+                        </motion.div>
                     ))}
                 </div>
             </div>
