@@ -1,56 +1,58 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle, XCircle } from "lucide-react";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Prices = () => {
+    const { t } = useTranslation();
     const [billingCycle, setBillingCycle] = useState("monthly");
     const [selectedSection, setSelectedSection] = useState("Web Hosting");
     const [selectedPlan, setSelectedPlan] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const pricingPlans = {
-        "Web Hosting": [
+        [t("pricingName1")]: [
             {
-                name: "Starter Plan",
+                name: t("pricingName1"),
                 price: { monthly: 2.99, yearly: 35.88, bonus: 2.69 },
                 features: [
-                    "1 Website",
-                    "30 GB SSD Storage",
-                    "100 GB Bandwidth",
-                    "1 Email Account",
-                    "Free SSL Certificate",
-                    "24/7 Support",
+                    t("list1"),
+                    t("list2"),
+                    t("list3"),
+                    t("list4"),
+                    t("list5"),
+                    t("list6"),
                 ],
-                buttonText: "Select",
+                buttonText: t("button1"),
             },
             {
-                name: "Premium Plan",
+                name: t("pricingName2"),
                 price: { monthly: 5.99, yearly: 71.88, bonus: 5.39 },
                 features: [
-                    "100 Websites",
-                    "100 GB SSD Storage",
-                    "Unlimited Bandwidth",
-                    "Free Email",
-                    "Free SSL Certificate",
-                    "Free Domain",
-                    "24/7 Support",
+                    t("list7"),
+                    t("list8"),
+                    t("list9"),
+                    t("list10"),
+                    t("list11"),
+                    t("list12"),
+                    t("list13"),
                 ],
-                buttonText: "Select",
+                buttonText: t("button2"),
             },
             {
-                name: "Business Plan",
+                name: t("pricingName3"),
                 price: { monthly: 9.99, yearly: 119.88, bonus: 8.99 },
                 features: [
-                    "100 Websites",
-                    "200 GB SSD Storage",
-                    "Unlimited Bandwidth",
-                    "Free Email",
-                    "Free SSL Certificate",
-                    "Free Domain",
-                    "Daily Backups",
-                    "24/7 Support",
+                    t("list14"),
+                    t("list15"),
+                    t("list16"),
+                    t("list17"),
+                    t("list18"),
+                    t("list19"),
+                    t("list20"),
+                    t("list21"),
                 ],
-                buttonText: "Select",
+                buttonText: t("button3"),
             },
         ],
         // Add more categories here...
@@ -74,13 +76,17 @@ const Prices = () => {
         <div className="bg-gray-50 py-20" id="prices">
             <div className="container mx-auto px-4 md:px-20">
                 <h2 className="text-5xl font-bold text-center mb-12">
-                    Pricing
+                    {t("titlePricing")}
                 </h2>
 
                 {/* Billing Cycle Toggle */}
                 <div className="text-center mb-10">
                     <div className="inline-flex border rounded-lg overflow-hidden">
-                        {["monthly", "yearly", "bonus"].map((cycle) => (
+                        {[
+                            t("group.nameButton1"),
+                            t("group.nameButton2"),
+                            t("group.nameButton3"),
+                        ].map((cycle) => (
                             <button
                                 key={cycle}
                                 onClick={() => setBillingCycle(cycle)}

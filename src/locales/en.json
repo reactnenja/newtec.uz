@@ -79,6 +79,45 @@
     "excerpt8": "The latest ways to secure the digital world.",
     "excerpt9": "The working principle of blockchain technology and its future role.",
 
+    "titlePricing": "Our Prices",
+
+    "pricingName": "Prices of our services",
+
+    "pricingName1": "Basic Plan",
+    "list1": "10 Websites",
+    "list2": "30 GB SSD Storage",
+    "list3": "100 GB Bandwidth",
+    "list4": "1 Email",
+    "list5": "Private SSL Certificate",
+    "list6": "24/7 Support",
+    "button1": "Choose",
+
+    "pricingName2": "Premium Plan",
+    "list7": "100 Websites",
+    "list8": "100 GB SSD Storage",
+    "list9": "Unlimited Bandwidth",
+    "list10": "Free Email",
+    "list11": "Public SSL Certificate",
+    "list12": "24/7 Support",
+    "button2": "Choose",
+
+    "pricingName3": "Special Plan",
+    "list14": "100 Sites",
+    "list15": "Store 100 GB SSD",
+    "list16": "Over the Unlimited Network",
+    "list17": "Free Email",
+    "list18": "Secret SSL Certificate",
+    "list19": "Free Domain",
+    "list20": "Daily Backups",
+    "list21": "24/7 Support",
+    "button3": "Select",
+
+    "group": {
+        "nameButton1": "monthly",
+        "nameButton2": "yearly",
+        "nameButton3": "bonus"
+    },
+
     "contactus1": "Send us a message",
     "mapsTitle": "Our location",
     "addressTitle": "Our address",
