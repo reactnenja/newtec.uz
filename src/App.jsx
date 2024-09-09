@@ -6,16 +6,17 @@ import Home from "./pages/Home";
 import Hosting from "./pages/Hosting";
 import Login from "./pages/Login";
 import RegistrationPage from "./pages/Registerations";
+
 const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<RegistrationPage />} />
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="/hosting" element={<Hosting />} />
                     <Route path="/email-hosting" element={<EmailHosting />} />
+                    <Route path="/register" element={<RegistrationPage />} />
+                    <Route path="/login" element={<Login />} />
                 </Route>
             </Routes>
         </Router>
