@@ -11,7 +11,7 @@ const Prices = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const pricingPlans = {
-        [t("pricingName1")]: [
+        [t("pricingName")]: [
             {
                 name: t("pricingName1"),
                 price: { monthly: 2.99, yearly: 35.88, bonus: 2.69 },
