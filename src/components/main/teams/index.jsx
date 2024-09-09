@@ -126,7 +126,7 @@ const Teams = () => {
             className="pt-[140px] pb-[88px] bg-gradient-to-b from-gray-100 to-gray-50 w-full h-auto"
             id="teams"
         >
-            <div className="container mx-auto px-4 md:px-20">
+            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <div className="flex flex-col md:flex-row justify-between items-center mb-10">
                     <h1 className="text-4xl font-extrabold mb-4 md:mb-0 text-center md:text-left text-gray-800">
                         Our Amazing Team

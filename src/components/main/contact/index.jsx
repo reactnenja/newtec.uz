@@ -50,7 +50,7 @@ const Contact = () => {
     return (
         <section className="py-20 bg-gray-100" id="contact">
             <ToastContainer position="top-right" autoClose={5000} />
-            <div className="container mx-auto px-4 md:px-8 lg:px-16">
+            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-16 text-center">
                     {t("contactus1")}
                 </h1>

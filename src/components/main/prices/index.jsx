@@ -74,7 +74,7 @@ const Prices = () => {
 
     return (
         <div className="bg-gray-50 py-20" id="prices">
-            <div className="container mx-auto px-4 md:px-20">
+            <div className="container-xxl max-sm:container-sm max-md:container-md  max-lg:container-xxl max-xl:container-xxl max-xxl:container-xxl mx-auto px-4 md:px-20">
                 <h2 className="text-5xl font-bold text-center mb-12">
                     {t("titlePricing")}
                 </h2>
