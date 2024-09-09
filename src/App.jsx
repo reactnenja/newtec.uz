@@ -4,7 +4,7 @@ import Layout from "./components/layout";
 import EmailHosting from "./pages/EmailHosting";
 import Home from "./pages/Home";
 import Hosting from "./pages/Hosting";
-import Login from "./pages/login";
+import Login from "./pages/Login";
 import RegistrationPage from "./pages/Registerations";
 const App = () => {
     return (
